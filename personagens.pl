@@ -61,14 +61,41 @@ Zetsu
 */
 
 %inicio: inicia com ?- iniciar.
-iniciar :- hipotese(Personagem),
+/* iniciar :- hipotese(Personagem),
     classificacoes(Classificacoes),
     filtrar_personagens(Classificacoes, Personagens),
     escolher_personagem(Personagens, Personagem),
     write('Eu acho que o personagem é: '),
     write(Personagem),
     nl,
-    undo.
+    undo. */
+
+/* iniciar :- hipotese(Personagem),
+           write('Eu acho que o personagem é: '),
+           write(Personagem),
+           nl,
+           undo. */
+% Iniciar a dedução
+iniciar :- nl,
+        retractall(yes(_)),
+        retractall(no(_)),
+        findall(P, personagem(P), Personagens)
+        findall(C, cla(C, _), Clas),
+        perguntar_cla(Clas, Personagens, Personagens1),
+        findall(E, equipe(E, _), Equipes),
+        perguntar_equipe(Equipes, Personagens1, Personagens2),
+        findall(J, jutsu(J, _), Jutsus),
+        perguntar_jutsu(Jutsus, Personagens2, Personagens3),
+        findall(S, sexo(S, _), Sexos),
+        perguntar_sexo(Sexos, Personagens3, Personagens4),
+        findall(CC, cor_cabelo(CC, _), CoresCabelo),
+        perguntar_cor_cabelo(CoresCabelo, Personagens4, Personagens5),
+        findall(CO, cor_olhos(CO, _), CoresOlhos),
+        perguntar_cor_olhos(CoresOlhos, Personagens5, Personagens6),
+        write('Eu acho que o personagem é: '),
+        write(Personagem),
+        nl,
+        undo.
 
 % hipoteses a serem testadas
 hipotese(asuma_sarutobi) :- asuma_sarutobi, !.
@@ -120,13 +147,16 @@ hipotese(zabuza_momochi) :- zabuza_momochi, !.
 hipotese(zetsu) :- zetsu, !.
 hipotese(desconhecido).
 
-asuma_sarutobi :- 
-    personagem([cla(sarutobi, _)], asuma_sarutobi),
-    
+/* asuma_sarutobi :- 
+    personagem([cla(sarutobi, _)], asuma_sarutobi). 
+asuma_sarutobi :- cla(sarutobi),
+                    equipe(time_10),
+                    sensei(),
 
+*/
 
-% personagem desconhecido
-personagem_desconhecido :- write('Não foi possível identificar o personagem.').
+/* % personagem desconhecido
+personagem_desconhecido :- write('Não foi possível identificar o personagem.'). */
 
 % Regras de classificação
 
@@ -232,8 +262,8 @@ jutsu(taijutsu, [rock_lee, might_guy, neji_hyuuga]).
 jutsu(genjutsu, [kurenai_yuhi, itachi_uchiha]).
 jutsu(jutsus_medicos, [sakura_haruno, tsunade, kabuto_yakushi]).
 
-% Lista com as classificações em ordem de prioridade
-classificacoes([cla, equipe, jutsu, cor_cabelo, cor_olhos]).
+/* % Lista com as classificações em ordem de prioridade
+classificacoes([cla, equipe, jutsu, equipe, sensei, aluno, cor_cabelo, cor_olhos, sexo]).
 
 % Filtrar personagens com base nas classificações
 filtrar_personagens([], Personagens) :- !, findall(X, personagem(X), Personagens).
@@ -275,28 +305,126 @@ escolher_personagem([Personagem], Personagem) :- !.
 escolher_personagem(Personagens, Personagem) :-
     length(Personagens, N),
     random(0, N, Index),
-    nth0(Index, Personagens, Personagem). */
+    nth0(Index, Personagens, Personagem). */ */
 
 % Regras de classificação de personagens
 pertence_a_cla(X, Cla) :- cla(Cla, Membros), member(X, Membros).
 pertence_a_equipe(X, Equipe) :- equipe(Equipe, Membros), member(X, Membros).
 usa_jutsu(X, Jutsu) :- jutsu(Jutsu, Usuarios), member(X, Usuarios).
+%tem_sexo()
 tem_cor_cabelo(X, Cor) :- cor_cabelo(Cor, Personagens), member(X, Personagens).
 tem_cor_olhos(X, Cor) :- cor_olhos(Cor, Personagens), member(X, Personagens).
 foi_sensei_de(X, Estudante) :- sensei(X, Estudantes), member(Estudante, Estudantes).
 foi_aluno_de(X, Professor) :- aluno(X, Professores), member(Professor, Professores).
 
-% Classificação de personagens
+% Perguntar sobre clãs
+/* perguntar_cla([]).
+perguntar_cla([Cla|Resto]) :-
+    ( verificar(pertence_a_cla(_, Cla))
+        -> true
+        ; perguntar_cla(Resto)
+    ).
+ */
+perguntar_cla([], _, _).
+perguntar_cla([Cla|Resto], Personagens, PersonagensFiltrados) :-
+    verificar(pertence_a_cla(_, Cla), Personagens, PersonagensFiltrados),
+    perguntar_cla(Resto, Personagens, PersonagensFiltrados).
+
+% Perguntar sobre equipes
+/* perguntar_equipe([]).
+perguntar_equipe([Equipe|Resto]) :-
+    ( verificar(pertence_a_equipe(_, Equipe))
+        -> true
+        ; perguntar_equipe(Resto)
+    ). */
+
+perguntar_equipe([], _, _).
+perguntar_equipe([Equipe|Resto], Personagens, PersonagensFiltrados) :-
+    verificar(pertence_a_equipe(_, Equipe), Personagens, PersonagensFiltrados),
+    perguntar_equipe(Resto, Personagens, PersonagensFiltrados).
+
+% Perguntar sobre jutsus
+/* perguntar_jutsu([]).
+perguntar_jutsu([Jutsu|Resto]) :-
+    ( verificar(usa_jutsu(_, Jutsu))
+        -> true
+        ; perguntar_jutsu(Resto)
+    ). */
+
+perguntar_jutsu([], _, _).
+perguntar_jutsu([Jutsu|Resto], Personagens, PersonagensFiltrados) :-
+    verificar(usa_jutsu(_, Jutsu), Personagens, PersonagensFiltrados),
+
+
+% Perguntar sobre sexo
+perguntar_sexo([]).
+perguntar_sexo([Sexo|Resto]) :-
+    ( verificar(sexo(Sexo, _))
+        -> true
+        ; perguntar_sexo(Resto)
+    ).
+
+% Perguntar sobre cor do cabelo
+perguntar_cor_cabelo([]).
+perguntar_cor_cabelo([CorCabelo|Resto]) :-
+    ( verificar(tem_cor_cabelo(_, CorCabelo))
+        -> true
+        ; perguntar_cor_cabelo(Resto)
+    ).
+
+% Perguntar sobre cor dos olhos
+perguntar_cor_olhos([]).
+perguntar_cor_olhos([CorOlhos|Resto]) :-
+    ( verificar(tem_cor_olhos(_, CorOlhos))
+        -> true
+        ; perguntar_cor_olhos(Resto)
+    ).
+
+/* % Classificação de personagens
 classificar(X, Cla) :- pertence_a_cla(X, Cla).
 classificar(X, Equipe) :- pertence_a_equipe(X, Equipe).
 classificar(X, Jutsu) :- usa_jutsu(X, Jutsu).
 classificar(X, CorCabelo) :- tem_cor_cabelo(X, CorCabelo).
 classificar(X, CorOlhos) :- tem_cor_olhos(X, CorOlhos).
 classificar(X, Sensei) :- foi_sensei_de(Sensei, X).
-classificar(X, Aluno) :- foi_aluno_de(X, Aluno).
+classificar(X, Aluno) :- foi_aluno_de(X, Aluno). */
 
+/* % Escolhe um personagem que se encaixa nas classificações especificadas
 personagem(Classificacoes, Personagem) :-
+    % Limita o número de escolhas para no máximo 2 classificações
+    length(Classificacoes, N), N < 3,
+    % Busca todos os personagens que se encaixam nas classificações especificadas
+    findall(Personagem,
+            (member(Cla, Classificacoes),
+             cla(Cla, L),
+             member(Personagem, L)),
+            Personagens),
+    % Limita o número de personagens para no máximo 19
+    length(Personagens, M), M < 20,
+    % Escolhe um personagem da lista, evitando escolhas já feitas
+    member(Personagem, Personagens),
+    \+ member(Personagem, Classificacoes),
+    % Adiciona a classificação escolhida à lista de classificações
+    classificar(Personagem, Cla),
+    \+ member(Cla, Classificacoes),
+    append([Cla], Classificacoes, NovaClassificacoes),
+    % Faz recursão com a lista de classificações atualizada
+    personagem(NovaClassificacoes, Personagem). */
+
+/*personagem(Classificacoes, Personagem) :-
     personagem(Classificacoes, _, Personagem).
+
+ personagem(_, _, _) :- fail. % cláusula para evitar recursão infinita
+
+personagem(Classificacoes, Personagens, Personagem) :-
+    length(Classificacoes, N), N < 3, % limita o número de escolhas para no máximo 2
+    length(Personagens, M), M < 20, % limita o número de personagens para no máximo 19
+    member(Personagem, Personagens), % escolhe um personagem da lista
+    \+ member(Personagem, Classificacoes), % evita escolher personagens já escolhidos
+    classificar(Personagem, Cla),
+    \+ member(Cla, Classificacoes), % evita escolher a mesma classificação duas vezes
+    append([Cla], Classificacoes, NovaClassificacoes), % adiciona a classificação escolhida à lista de classificações
+    personagem(NovaClassificacoes, Personagens, Personagem). % recursão com a lista de classificações atualizada
 
 personagem(Classificacoes, [Cla|Outras], Personagem) :-
     cla(Cla, L),
@@ -308,7 +436,7 @@ personagem(Classificacoes, [Jutsu|Outras], Personagem) :-
     member(Personagem, L),
     personagem(Classificacoes, Outras, Personagem).
 
-personagem(_, [], _) :- fail.
+personagem(_, [], _) :- fail. */
 
 /* % Encontrar personagem baseado nas classificações
 personagem(Classificacoes, Personagem) :-
@@ -328,14 +456,13 @@ perguntar(Questao) :-
     read(Resposta),
     nl,
     ( (Resposta == sim ; Resposta == s)
-      ->
-       assert(yes(Questao)) ;
-       assert(no(Questao)), fail).
+        ->assert(yes(Questao)) ;
+        assert(no(Questao)), fail).
 
 % Verificar se uma resposta é sim ou não
 verificar(S) :- (yes(S) -> true ;
                         (no(S)  -> fail ; perguntar(S))
-                 ).
+                ).
 
 % Desfazer as respostas
 undo :- retract(yes(_)),fail.
