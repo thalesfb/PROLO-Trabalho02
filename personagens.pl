@@ -77,27 +77,49 @@ Zetsu
            undo. */
 % Iniciar a dedução
 iniciar :- nl,
+        %desfazer respostas antigas
         retractall(yes(_)),
         retractall(no(_)),
+        %Procurando todos os personagens
         findall(P, personagem(P), Personagens)
+        %Procurando todas os clas
         findall(C, cla(C, _), Clas),
+        %Perguntando se pertence a aquele cla
         perguntar_cla(Clas, Personagens, Personagens1),
+        %Procurando todas as equipes
         findall(E, equipe(E, _), Equipes),
+        %Perguntando se pertence a aquela equipe
         perguntar_equipe(Equipes, Personagens1, Personagens2),
+        %Procurando todos os jutsus
         findall(J, jutsu(J, _), Jutsus),
+        %Perguntando se usa aquele jutsu
         perguntar_jutsu(Jutsus, Personagens2, Personagens3),
-        findall(S, sexo(S, _), Sexos),
-        perguntar_sexo(Sexos, Personagens3, Personagens4),
+        %Procurando todos os senseis
+        findall(Sens, sensei(Sens, _), Senseis),
+        %Perguntando se foi sensei de alguem
+        perguntar_sensei(Senseis, Personagens3, Personagens4),
+        %Procurando todos os alunos
+        findall(Al, aluno(Al, _), Alunos),
+        %Perguntando se foi aluno de alguem
+        perguntar_aluno(Alunos, Personagens4, Personagens5),
+        %Procurando todas as cores de cabelo
         findall(CC, cor_cabelo(CC, _), CoresCabelo),
-        perguntar_cor_cabelo(CoresCabelo, Personagens4, Personagens5),
+        %Perguntando se tem aquela cor de cabelo
+        perguntar_cor_cabelo(CoresCabelo, Personagens5, Personagens6),
+        %Procurando todas as cores de olhos
         findall(CO, cor_olhos(CO, _), CoresOlhos),
-        perguntar_cor_olhos(CoresOlhos, Personagens5, Personagens6),
+        %Perguntando se tem aquela cor de olhos
+        perguntar_cor_olhos(CoresOlhos, Personagens6, Personagens7),
+        %Procurando todos os sexos
+        findall(S, sexo(S, _), Sexos),
+        %Perguntando se tem aquele sexo
+        perguntar_sexo(Sexos, Personagens7, Personagens8),
+        %Escrevendo o personagem escolhido
         write('Eu acho que o personagem é: '),
-        write(Personagem),
-        nl,
+        writeln(Personagem8),
         undo.
 
-% hipoteses a serem testadas
+% hipoteses de personagens a serem testadas
 hipotese(asuma_sarutobi) :- asuma_sarutobi, !.
 hipotese(baki) :- baki, !.
 hipotese(choji_akimichi) :- choji_akimichi, !.
@@ -263,7 +285,7 @@ jutsu(genjutsu, [kurenai_yuhi, itachi_uchiha]).
 jutsu(jutsus_medicos, [sakura_haruno, tsunade, kabuto_yakushi]).
 
 /* % Lista com as classificações em ordem de prioridade
-classificacoes([cla, equipe, jutsu, equipe, sensei, aluno, cor_cabelo, cor_olhos, sexo]).
+classificacoes([cla, equipe, jutsu, sensei, aluno, cor_cabelo, cor_olhos, sexo]).
 
 % Filtrar personagens com base nas classificações
 filtrar_personagens([], Personagens) :- !, findall(X, personagem(X), Personagens).
@@ -311,7 +333,7 @@ escolher_personagem(Personagens, Personagem) :-
 pertence_a_cla(X, Cla) :- cla(Cla, Membros), member(X, Membros).
 pertence_a_equipe(X, Equipe) :- equipe(Equipe, Membros), member(X, Membros).
 usa_jutsu(X, Jutsu) :- jutsu(Jutsu, Usuarios), member(X, Usuarios).
-%tem_sexo()
+seu_sexo(X, Sexo) :- sexo(Sexo, Personagens), member(X, Personagens).
 tem_cor_cabelo(X, Cor) :- cor_cabelo(Cor, Personagens), member(X, Personagens).
 tem_cor_olhos(X, Cor) :- cor_olhos(Cor, Personagens), member(X, Personagens).
 foi_sensei_de(X, Estudante) :- sensei(X, Estudantes), member(Estudante, Estudantes).
@@ -325,12 +347,13 @@ perguntar_cla([Cla|Resto]) :-
         ; perguntar_cla(Resto)
     ).
  */
+
+% Perguntar sobre clãs
 perguntar_cla([], _, _).
 perguntar_cla([Cla|Resto], Personagens, PersonagensFiltrados) :-
     verificar(pertence_a_cla(_, Cla), Personagens, PersonagensFiltrados),
     perguntar_cla(Resto, Personagens, PersonagensFiltrados).
 
-% Perguntar sobre equipes
 /* perguntar_equipe([]).
 perguntar_equipe([Equipe|Resto]) :-
     ( verificar(pertence_a_equipe(_, Equipe))
@@ -338,48 +361,75 @@ perguntar_equipe([Equipe|Resto]) :-
         ; perguntar_equipe(Resto)
     ). */
 
+% Perguntar sobre equipes
 perguntar_equipe([], _, _).
 perguntar_equipe([Equipe|Resto], Personagens, PersonagensFiltrados) :-
     verificar(pertence_a_equipe(_, Equipe), Personagens, PersonagensFiltrados),
     perguntar_equipe(Resto, Personagens, PersonagensFiltrados).
 
-% Perguntar sobre jutsus
+
 /* perguntar_jutsu([]).
 perguntar_jutsu([Jutsu|Resto]) :-
     ( verificar(usa_jutsu(_, Jutsu))
         -> true
         ; perguntar_jutsu(Resto)
     ). */
-
+% Perguntar sobre jutsus
 perguntar_jutsu([], _, _).
 perguntar_jutsu([Jutsu|Resto], Personagens, PersonagensFiltrados) :-
     verificar(usa_jutsu(_, Jutsu), Personagens, PersonagensFiltrados),
+    perguntar_jutsu(Resto, Personagens, PersonagensFiltrados).
 
 
 % Perguntar sobre sexo
-perguntar_sexo([]).
+perguntar_sexo([], _, _).
+perguntar_sexo([Sexo|Resto], Personagens, PersonagensFiltrados) :-
+    verificar(sexo(Sexo, _), Personagens, PersonagensFiltrados),
+    perguntar_sexo(Resto, Personagens, PersonagensFiltrados).
+/* perguntar_sexo([]).
 perguntar_sexo([Sexo|Resto]) :-
     ( verificar(sexo(Sexo, _))
         -> true
         ; perguntar_sexo(Resto)
-    ).
+    ). */
 
 % Perguntar sobre cor do cabelo
-perguntar_cor_cabelo([]).
+perguntar_cor_cabelo([], _, _).
+perguntar_cor_cabelo([CorCabelo|Resto], Personagens, PersonagensFiltrados) :-
+    verificar(tem_cor_cabelo(_, CorCabelo), Personagens, PersonagensFiltrados),
+    perguntar_cor_cabelo(Resto, Personagens, PersonagensFiltrados).
+/* perguntar_cor_cabelo([]).
 perguntar_cor_cabelo([CorCabelo|Resto]) :-
     ( verificar(tem_cor_cabelo(_, CorCabelo))
         -> true
         ; perguntar_cor_cabelo(Resto)
-    ).
+    ). */
 
 % Perguntar sobre cor dos olhos
-perguntar_cor_olhos([]).
+perguntar_cor_olhos([], _, _).
+perguntar_cor_olhos([CorOlhos|Resto], Personagens, PersonagensFiltrados) :-
+    verificar(tem_cor_olhos(_, CorOlhos), Personagens, PersonagensFiltrados),
+    perguntar_cor_olhos(Resto, Personagens, PersonagensFiltrados).
+
+% Perguntar se foi sensei
+perguntar_sensei([], _, _).
+perguntar_sensei([Sensei|Resto], Personagens, PersonagensFiltrados) :-
+    verificar(foi_sensei_de(Sensei, _), Personagens, PersonagensFiltrados),
+    perguntar_sensei(Resto, Personagens, PersonagensFiltrados).
+
+% Perguntar se foi aluno
+perguntar_aluno([], _, _).
+perguntar_aluno([Aluno|Resto], Personagens, PersonagensFiltrados) :-
+    verificar(foi_aluno_de(_, Aluno), Personagens, PersonagensFiltrados),
+    perguntar_aluno(Resto, Personagens, PersonagensFiltrados).
+
+/* perguntar_cor_olhos([]).
 perguntar_cor_olhos([CorOlhos|Resto]) :-
     ( verificar(tem_cor_olhos(_, CorOlhos))
         -> true
         ; perguntar_cor_olhos(Resto)
     ).
-
+ */
 /* % Classificação de personagens
 classificar(X, Cla) :- pertence_a_cla(X, Cla).
 classificar(X, Equipe) :- pertence_a_equipe(X, Equipe).
@@ -449,15 +499,18 @@ personagem(Classificacoes, [_, Outras], Personagem) :-
 personagem([], _, _) :- fail. */
 
 % Perguntas ao usuário
-perguntar(Questao) :-
+perguntar(Questao, Personagens, PersonagensFiltrados) :-
     write('O personagem tem o seguinte atributo: '),
     write(Questao),
     write(' (s|n) ? '),
     read(Resposta),
     nl,
     ( (Resposta == sim ; Resposta == s)
-        ->assert(yes(Questao)) ;
-        assert(no(Questao)), fail).
+        -> (include(Questao, Personagens, PersonagensFiltrados), assert(yes(Questao)))
+        ; (exclude(Questao, Personagens, PersonagensFiltrados), assert(no(Questao)), fail)
+        /* ->assert(yes(Questao)) ;
+        assert(no(Questao)), fail */
+        ).
 
 % Verificar se uma resposta é sim ou não
 verificar(S) :- (yes(S) -> true ;
