@@ -1,74 +1,71 @@
-/* 
-                    TRABALHO 02
-Criar uma base de conhecimento e definir regras para um sistema especialista com no mínimo 10 deduções/conclusões
-Apresentar e enviar via SIGAA:
-  - Mostrar funcionando
-  - Documentar código
-  - Compor um manual
-  - explicando como funciona.
-  - regras, deduções, etc. 
-  */
-/* 
+% TRABALHO 02
+% Criar uma base de conhecimento e definir regras para um sistema especialista com no mínimo 10 deduções/conclusões
+% Apresentar e enviar via SIGAA:
+%   - Mostrar funcionando
+%   - Documentar código
+%   - Compor um manual
+%   - explicando como funciona.
+%   - regras, deduções, etc. 
 
-- Personagens de Naruto Classico
-Asuma Sarutobi
-Baki
-Choji Akimichi
-Danzo Shimura
-Deidara
-Fugaku Uchiha
-Gaara
-Haku
-Hanabi Hyuuga
-Hashirama Senju
-Hidan
-Hiashi Hyuuga
-Hiruzen Sarutobi
-Hizashi Hyuuga
-Ino Yamanaka
-Itachi Uchiha
-Jiraiya
-Kabuto Yakushi
-Kakashi Hatake
-Kakuzu
-Kankuro
-Kiba Inuzuka
-Kisame Hoshigaki
-Konan
-Kushina Uzumaki
-Kurenai Yuhi
-Might Guy
-Mikoto Uchiha
-Minato Namikaze
-Naruto Uzumaki
-Neji Hyuuga
-Obito Uchiha
-Orochimaru
-Rin Nohara
-Rock Lee
-Sai
-Sakura Haruno
-Sasori
-Sasuke Uchiha
-Shikamaru Nara
-Shino Aburame
-Temari
-Tenten
-Tobirama Senju
-Tsunade
-Zabuza Momochi
-Zetsu
+% - Personagens de Naruto Classico
 
-Classificações:
-- Cla
-- Equipe
-- Jutsu
-- Sensei
-- Aluno
-- Cor do cabelo
-- Cor dos olhos
-- Sexo
-*/
+% Asuma Sarutobi
+% Baki
+% Choji Akimichi
+% Danzo Shimura
+% Deidara
+% Fugaku Uchiha
+% Gaara
+% Haku
+% Hanabi Hyuuga
+% Hashirama Senju
+% Hidan
+% Hiashi Hyuuga
+% Hiruzen Sarutobi
+% Hizashi Hyuuga
+% Ino Yamanaka
+% Itachi Uchiha
+% Jiraiya
+% Kabuto Yakushi
+% Kakashi Hatake
+% Kakuzu
+% Kankuro
+% Kiba Inuzuka
+% Kisame Hoshigaki
+% Konan
+% Kushina Uzumaki
+% Kurenai Yuhi
+% Might Guy
+% Mikoto Uchiha
+% Minato Namikaze
+% Naruto Uzumaki
+% Neji Hyuuga
+% Obito Uchiha
+% Orochimaru
+% Rin Nohara
+% Rock Lee
+% Sai
+% Sakura Haruno
+% Sasori
+% Sasuke Uchiha
+% Shikamaru Nara
+% Shino Aburame
+% Temari
+% Tenten
+% Tobirama Senju
+% Tsunade
+% Zabuza Momochi
+% Zetsu
+
+% Classificações:
+% - Cla
+% - Equipe
+% - Jutsu
+% - Sensei
+% - Aluno
+% - Cor do cabelo
+% - Cor dos olhos
+% - Sexo
 
 iniciar :- hipotese(Personagem),
         write('Eu acho que o personagem é: '),
@@ -218,20 +215,20 @@ choji_akimichi :- cla_akimichi, cabelo_castanho, olhos_preto, equipe_time_10, se
 danzo_shimura :- cabelo_cinza, olhos_preto, equipe_time_hiruzen, sensei_hiruzen, jutsu_taijutsu.
 deidara :- cabelo_loiro, olhos_azul, equipe_akatsuki, sensei_sasori, jutsu_katon, jutsu_doton.
 fugaku_uchiha :- cla_uchiha, cabelo_preto, olhos_sharingan, equipe_time_4_hokages, sensei_minato, jutsu_katon, jutsu_sharingan.
-gaara :- cabelo_ruivo, olhos_azul, equipe_sand, sensei_baki, jutsu_suiton, jutsu_doton.
-haku :- cabelo_prateado, olhos_azul, equipe_time_minato, sensei_minato, jutsu_suiton, jutsu_doton.
+gaara :- cabelo_vermelho, olhos_azul, equipe_sand, sensei_baki, jutsu_suiton, jutsu_doton.
+haku :- cabelo_cinza, olhos_azul, equipe_time_minato, sensei_minato, jutsu_suiton, jutsu_doton.
 hanabi_hyuuga :- cla_hyuuga, cabelo_preto, olhos_byakugan, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
 hashirama_senju :- cabelo_castanho, olhos_preto, equipe_time_4_hokages, sensei_hiruzen, jutsu_mokuton, jutsu_taijutsu.
-hidan :- cabelo_prateado, olhos_cinza, equipe_akatsuki, sensei_kakuzu, jutsu_taijutsu.
+hidan :- cabelo_cinza, olhos_cinza, equipe_akatsuki, sensei_kakuzu, jutsu_taijutsu.
 hiashi_hyuuga :- cla_hyuuga, cabelo_preto, olhos_byakugan, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
-hiruzen_sarutobi :- cla_sarutobi, cabelo_branco, olhos_preto, equipe_time_hiruzen, sensei_hiruzen, jutsu_katon, jutsu_taijutsu.
+hiruzen_sarutobi :- cla_sarutobi, cabelo_cinza, olhos_preto, equipe_time_hiruzen, sensei_hiruzen, jutsu_katon, jutsu_taijutsu.
 hizashi_hyuuga :- cla_hyuuga, cabelo_preto, olhos_byakugan, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
 ino_yamanaka :- cla_yamanaka, cabelo_loiro, olhos_azul, equipe_time_10, sensei_sarutobi, jutsu_taijutsu, jutsus_medicos.
 itachi_uchiha :- cla_uchiha, cabelo_preto, olhos_sharingan, equipe_akatsuki, sensei_kisame, jutsu_katon, jutsu_sharingan.
-jiraiya :- cabelo_branco, olhos_preto, equipe_time_jiraiya, sensei_jiraiya, jutsu_katon, jutsu_taijutsu.
+jiraiya :- cabelo_cinza, olhos_preto, equipe_time_jiraiya, sensei_jiraiya, jutsu_katon, jutsu_taijutsu.
 kabuto_yakushi :- cabelo_preto, olhos_preto, equipe_time_orochimaru, sensei_orochimaru, jutsu_katon, jutsu_taijutsu.
-kakashi_hatake :- cla_hatake, cabelo_branco, olhos_preto, equipe_time_7, sensei_minato, jutsu_katon, jutsu_taijutsu.
-kakuzu :- cabelo_branco, olhos_preto, equipe_akatsuki, sensei_hidan, jutsu_katon, jutsu_taijutsu.
+kakashi_hatake :- cla_hatake, cabelo_cinza, olhos_preto, equipe_time_7, sensei_minato, jutsu_katon, jutsu_taijutsu.
+kakuzu :- cabelo_cinza, olhos_preto, equipe_akatsuki, sensei_hidan, jutsu_katon, jutsu_taijutsu.
 kankuro :- cabelo_preto, olhos_preto, equipe_sand, sensei_baki, jutsu_katon, jutsu_taijutsu.
 kiba_inuzuka :- cla_inuzuka, cabelo_marrom, olhos_preto, equipe_time_8, sensei_kurenai, jutsu_katon, jutsu_taijutsu.
 kisame_hoshigaki :- cabelo_azul, olhos_azul, equipe_akatsuki, sensei_itachi, jutsu_suiton, jutsu_taijutsu.
@@ -255,7 +252,7 @@ shikamaru_nara :- cla_nara, cabelo_preto, olhos_preto, equipe_time_10, sensei_sa
 shino_aburame :- cla_aburame, cabelo_preto, olhos_preto, equipe_time_8, sensei_hinata, jutsu_katon, jutsu_taijutsu.
 temari :- cabelo_loiro, olhos_azul, equipe_sand, sensei_baki, jutsu_suiton, jutsu_doton.
 tenten :- cabelo_preto, olhos_preto, equipe_time_10, sensei_sarutobi, jutsu_katon, jutsu_taijutsu.
-tobirama_senju :- cabelo_branco, olhos_preto, equipe_time_4_hokages, sensei_hiruzen, jutsu_mokuton, jutsu_taijutsu.
+tobirama_senju :- cabelo_cinza, olhos_preto, equipe_time_4_hokages, sensei_hiruzen, jutsu_mokuton, jutsu_taijutsu.
 tsunade :- cabelo_loiro, olhos_verde, equipe_time_3_sannins, sensei_hiruzen, jutsu_katon, jutsu_taijutsu.
 zabuza_momochi :- cabelo_preto, olhos_preto, equipe_time_zabuza, sensei_zabuza, jutsu_katon, jutsu_taijutsu.
 zetsu :- cabelo_preto, olhos_preto, equipe_akatsuki, sensei_pein, jutsu_katon, jutsu_taijutsu.
@@ -271,6 +268,8 @@ perguntar(Questao) :-
         -> assert(yes(Questao))
         ; assert(no(Questao)), fail
         ).
+
+:- dynamic yes/1,no/1.
 
 % Verificar se uma resposta é sim ou não
 verificar(S) :- (yes(S) -> true ;
