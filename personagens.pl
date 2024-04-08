@@ -8,9 +8,9 @@ Apresentar e enviar via SIGAA:
   - explicando como funciona.
   - regras, deduções, etc. 
   */
-
-% Personagens de Naruto Classico
 /* 
+
+- Personagens de Naruto Classico
 Asuma Sarutobi
 Baki
 Choji Akimichi
@@ -57,68 +57,26 @@ Tenten
 Tobirama Senju
 Tsunade
 Zabuza Momochi
-Zetsu 
+Zetsu
+
+Classificações:
+- Cla
+- Equipe
+- Jutsu
+- Sensei
+- Aluno
+- Cor do cabelo
+- Cor dos olhos
+- Sexo
 */
 
-%inicio: inicia com ?- iniciar.
-/* iniciar :- hipotese(Personagem),
-    classificacoes(Classificacoes),
-    filtrar_personagens(Classificacoes, Personagens),
-    escolher_personagem(Personagens, Personagem),
-    write('Eu acho que o personagem é: '),
-    write(Personagem),
-    nl,
-    undo. */
-
-/* iniciar :- hipotese(Personagem),
-           write('Eu acho que o personagem é: '),
-           write(Personagem),
-           nl,
-           undo. */
-% Iniciar a dedução
-iniciar :- nl,
-        %desfazer respostas antigas
-        retractall(yes(_)),
-        retractall(no(_)),
-        %Procurando todos os personagens
-        findall(P, personagem(P), Personagens)
-        %Procurando todas os clas
-        findall(C, cla(C, _), Clas),
-        %Perguntando se pertence a aquele cla
-        perguntar_cla(Clas, Personagens, Personagens1),
-        %Procurando todas as equipes
-        findall(E, equipe(E, _), Equipes),
-        %Perguntando se pertence a aquela equipe
-        perguntar_equipe(Equipes, Personagens1, Personagens2),
-        %Procurando todos os jutsus
-        findall(J, jutsu(J, _), Jutsus),
-        %Perguntando se usa aquele jutsu
-        perguntar_jutsu(Jutsus, Personagens2, Personagens3),
-        %Procurando todos os senseis
-        findall(Sens, sensei(Sens, _), Senseis),
-        %Perguntando se foi sensei de alguem
-        perguntar_sensei(Senseis, Personagens3, Personagens4),
-        %Procurando todos os alunos
-        findall(Al, aluno(Al, _), Alunos),
-        %Perguntando se foi aluno de alguem
-        perguntar_aluno(Alunos, Personagens4, Personagens5),
-        %Procurando todas as cores de cabelo
-        findall(CC, cor_cabelo(CC, _), CoresCabelo),
-        %Perguntando se tem aquela cor de cabelo
-        perguntar_cor_cabelo(CoresCabelo, Personagens5, Personagens6),
-        %Procurando todas as cores de olhos
-        findall(CO, cor_olhos(CO, _), CoresOlhos),
-        %Perguntando se tem aquela cor de olhos
-        perguntar_cor_olhos(CoresOlhos, Personagens6, Personagens7),
-        %Procurando todos os sexos
-        findall(S, sexo(S, _), Sexos),
-        %Perguntando se tem aquele sexo
-        perguntar_sexo(Sexos, Personagens7, Personagens8),
-        %Escrevendo o personagem escolhido
+iniciar :- hipotese(Personagem),
         write('Eu acho que o personagem é: '),
-        writeln(Personagem8),
+        write(Personagem),
+        nl,
         undo.
 
+% Iniciar a dedução
 % hipoteses de personagens a serem testadas
 hipotese(asuma_sarutobi) :- asuma_sarutobi, !.
 hipotese(baki) :- baki, !.
@@ -169,347 +127,149 @@ hipotese(zabuza_momochi) :- zabuza_momochi, !.
 hipotese(zetsu) :- zetsu, !.
 hipotese(desconhecido).
 
-/* asuma_sarutobi :- 
-    personagem([cla(sarutobi, _)], asuma_sarutobi). 
-asuma_sarutobi :- cla(sarutobi),
-                    equipe(time_10),
-                    sensei(),
-
-*/
-
-/* % personagem desconhecido
-personagem_desconhecido :- write('Não foi possível identificar o personagem.'). */
-
 % Regras de classificação
 
-% sexo masculino
-sexo(masculino, [asuma_sarutobi, baki, choji_akimichi, danzo_shimura, fugaku_uchiha, gaara, haku, hashirama_senju, hidan, hiashi_hyuuga, hiruzen_sarutobi, hizashi_hyuuga, itachi_uchiha, jiraiya, kabuto_yakushi, kakashi_hatake, kakuzu, kankuro, kiba_inuzuka, kisame_hoshigaki, might_guy, minato_namikaze, naruto_uzumaki, neji_hyuuga, obito_uchiha, orochimaru, rock_lee, sai, sasori, sasuke_uchiha, shikamaru_nara, shino_aburame, tobirama_senju, zabuza_momochi, zetsu]).
+%sexo
+sexo_masculino :- verificar(eh_do_sexo_masculino), !.
+sexo_feminino :- verificar(eh_do_sexo_feminino), !.
 
-% sexo feminino
-sexo(feminino, [hanabi_hyuuga, ino_yamanaka, kushina_uzumaki, kurenai_yuhi, mikoto_uchiha, rin_nohara, sakura_haruno, temari, tenten, tsunade]).
+%cabelo
+cabelo_loiro :- verificar(tem_cabelo_loiro), !.
+cabelo_preto:- verificar(tem_cabelo_preto), !.
+cabelo_castanho :- verificar(tem_cabelo_castanho), !.
+cabelo_vermelho :- verificar(tem_cabelo_vermelho), !.
+cabelo_cinza :- verificar(tem_cabelo_cinza), !.
+cabelo_azul :- verificar(tem_cabelo_azul), !.
 
-% Cor do cabelo
-% Loiro
-cor_cabelo(loiro, [naruto_uzumaki, ino_yamanaka, deidara, tsunade, minato_namikaze]).
-
-% Preto
-cor_cabelo(preto, [sasuke_uchiha, itachi_uchiha, fugaku_uchiha, mikoto_uchila, hinata_hyuuga, neji_hyuuga, hiashi_hyuuga, asuma_sarutobi, hizashi_hyuuga, hanabi_hyuuga, sai, iruka_umino, kabuto_yakushi, orochimaru, haku]).
-
-% Castanho
-cor_cabelo(castanho, [sakura_haruno, shikamaru_nara, choji_akimichi, kurenai_yuhi, hiruzen_sarutobi, rin_nohara, tenten]).
-
-% Vermelho
-cor_cabelo(vermelho, [gaara, sasori, kushina_uzumaki]).
-
-% Cinza
-cor_cabelo(cinza, [kakashi_hatake, hidan]).
-
-% Azul
-cor_cabelo(azul, [kisame_hoshigaki, konan]).
-
-% Cor dos olhos
-% Azul
-cor_olhos(azul, [naruto_uzumaki, sakura_haruno, ino_yamanaka, tsunade]).
-
-% Preto
-cor_olhos(preto, [sasuke_uchiha, hinata_hyuuga, neji_hyuuga, shikamaru_nara, choji_akimichi, rock_lee, tenten, kurenai_yuhi, asuma_sarutobi]).
-
-% Cinza
-cor_olhos(cinza, [kakashi_hatake]).
-
-% Sharingan
-cor_olhos(sharingan, [itachi_uchiha, sasuke_uchiha, obito_uchiha]).
+% Olhos
+olhos_azul :- verificar(tem_olhos_azul), !.
+olhos_preto :- verificar(tem_olhos_preto), !.
+olhos_cinza :- verificar(tem_olhos_cinza), !.
+olhos_sharingan :- verificar(tem_olhos_sharingan), !.
 
 % Clã
-cla(uzumaki, [naruto_uzumaki, kushina_uzumaki]).
-cla(uchiha, [sasuke_uchiha, itachi_uchiha, fugaku_uchiha, mikoto_uchiha]).
-cla(hyuuga, [hinata_hyuuga, neji_hyuuga, hiashi_hyuuga, hizashi_hyuuga, hanabi_hyuuga]).
-cla(nara, [shikamaru_nara]).
-cla(akimichi, [choji_akimichi]).
-cla(yamanaka, [ino_yamanaka]).
-cla(aburame, [shino_aburame]).
-cla(inuzuka, [kiba_inuzuka]).
-cla(sarutobi, [hiruzen_sarutobi, asuma_sarutobi]).
-cla(hatake, [kakashi_hatake]).
+cla_uzumaki :- verificar(eh_do_cla_uzumaki), !.
+cla_uchiha :- verificar(eh_do_cla_uchiha), !.
+cla_hyuuga :- verificar(eh_do_cla_hyuuga), !.
+cla_nara :- verificar(eh_do_cla_nara), !.
+cla_akimichi :- verificar(eh_do_cla_akimichi), !.
+cla_yamanaka :- verificar(eh_do_cla_yamanaka), !.
+cla_aburame :- verificar(eh_do_cla_aburame), !.
+cla_inuzuka :- verificar(eh_do_cla_inuzuka), !.
+cla_sarutobi :- verificar(eh_do_cla_sarutobi), !.
+cla_hatake :- verificar(eh_do_cla_hatake), !.
 
 % Equipe
-equipe(time_7, [naruto_uzumaki, sasuke_uchiha, sakura_haruno, kakashi_hatake]).
-equipe(time_10, [choji_akimichi, shikamaru_nara, ino_yamanaka, asuma_sarutobi]).
-equipe(time_8, [kiba_inuzuka, hinata_hyuuga, shino_aburame, kurenai_yuhi]).
-equipe(time_guy, [rock_lee, neji_hyuuga, tenten, might_guy]).
-equipe(sand, [gaara, kankuro, temari, baki]).
-equipe(akatsuki, [itachi_uchiha, kisame_hoshigaki, deidara, sasori, hidan, kakuzu, zetsu]).
-equipe(time_minato, [minato_namikaze, kakashi_hatake, obito_uchiha, rin_nohara]).
-equipe(time_hiruzen, [hiruzen_sarutobi, orochimaru, jiraiya, tsunade]).
-equipe(time_jiraiya, [jiraiya, minato_namikaze, tsunade, orochimaru]).
-equipe(time_4_hokages, [hashirama_senju, tobirama_senju, hiruzen_sarutobi, minato_namikaze]).
-equipe(time_3_sannins, [jiraiya, tsunade, orochimaru]).
+equipe_time_7 :- verificar(eh_do_time_7), !.
+equipe_time_10 :- verificar(eh_do_time_10), !.
+equipe_time_8 :- verificar(eh_do_time_8), !.
+equipe_time_guy :- verificar(eh_do_time_guy), !.
+equipe_sand :- verificar(eh_do_time_sand), !.
+equipe_akatsuki :- verificar(eh_do_time_akatsuki), !.
+equipe_time_minato :- verificar(eh_do_time_minato), !.
+equipe_time_hiruzen :- verificar(eh_do_time_hiruzen), !.
+equipe_time_jiraiya :- verificar(eh_do_time_jiraiya), !.
+equipe_time_4_hokages :- verificar(eh_do_time_4_hokages), !.
+equipe_time_3_sannins :- verificar(eh_do_time_3_sannins), !.
 
 % Sensei
-sensei(kakashi_hatake, [naruto_uzumaki, sasuke_uchiha, sakura_haruno]).
-sensei(asuma_sarutobi, [choji_akimichi, shikamaru_nara, ino_yamanaka]).
-sensei(kurenai_yuhi, [kiba_inuzuka, hinata_hyuuga, shino_aburame]).
-sensei(might_guy, [rock_lee, neji_hyuuga, tenten]).
-sensei(baki, [gaara, kankuro, temari]).
+sensei_kakashi :- verificar(eh_do_sensei_kakashi), !.
+sensei_saruotbi :- verificar(eh_do_sensei_sarutobi), !.
+sensei_kurenai :- verificar(eh_do_sensei_kurenai), !.
+sensei_guy :- verificar(eh_do_sensei_guy), !.
+sensei_baki :- verificar(eh_do_sensei_baki), !.
 
 % Aluno
-aluno(naruto_uzumaki, [kakashi_hatake, jiraiya, minato_namikaze, iruka_uzumaki]).
-aluno(sasuke_uchiha, [kakashi_hatake, orochimaru, itachi_uchiha]).
-aluno(sakura_haruno, [kakashi_hatake, tsunade]).
-aluno(choji_akimichi, [asuma_sarutobi]).
-aluno(shikamaru_nara, [asuma_sarutobi]).
-aluno(ino_yamanaka, [asuma_sarutobi]).
-aluno(kiba_inuzuka, [kurenai_yuhi]).
-aluno(hinata_hyuuga, [kurenai_yuhi]).
-aluno(shino_aburame, [kurenai_yuhi]).
-aluno(rock_lee, [might_guy]).
-aluno(neji_hyuuga, [might_guy]).
-aluno(tenten, [might_guy]).
-aluno(gaara, [baki]).
-aluno(kankuro, [baki]).
-aluno(temari, [baki]).
-aluno(itachi_uchiha, [madara_uchiha, fugaku_uchiha]).
+aluno_naruto :- verificar(eh_do_aluno_naruto), !.
+aluno_sasuke :- verificar(eh_do_aluno_sasuke), !.
+aluno_sakura :- verificar(eh_do_aluno_sakura), !.
+aluno_choji :- verificar(eh_do_aluno_choji), !.
+aluno_shikamaru :- verificar(eh_do_aluno_shikamaru), !.
+aluno_ino :- verificar(eh_do_aluno_ino), !.
+aluno_kiba :- verificar(eh_do_aluno_kiba), !.
+aluno_hinata :- verificar(eh_do_aluno_hinata), !.
+aluno_shino :- verificar(eh_do_aluno_shino), !.
+aluno_rock_lee :- verificar(eh_do_aluno_rock_lee), !.
+aluno_neji :- verificar(eh_do_aluno_neji), !.
+aluno_tenten :- verificar(eh_do_aluno_tenten), !.
+aluno_gaara :- verificar(eh_do_aluno_gaara), !.
+aluno_kankuro :- verificar(eh_do_aluno_kankuro), !.
+aluno_temari :- verificar(eh_do_aluno_temari), !.
+aluno_itachi :- verificar(eh_do_aluno_itachi), !.
 
 % Jutsus
-jutsu(katon, [sasuke_uchiha, itachi_uchiha, fugaku_uchiha]).
-jutsu(futon, [naruto_uzumaki]).
-jutsu(doton, [kakashi_hatake, deidara]).
-jutsu(suiton, [kisame_hoshigaki, zabuza_momochi, haku]).
-jutsu(raiton, [kakashi_hatake]).
-jutsu(mokuton, [danzo_shimura]).
-jutsu(bakuton, [deidara]).
-jutsu(byakugan, [hinata_hyuuga, neji_hyuuga]).
-jutsu(sharingan, [sasuke_uchiha, itachi_uchiha, kakashi_hatake]).
-jutsu(taijutsu, [rock_lee, might_guy, neji_hyuuga]).
-jutsu(genjutsu, [kurenai_yuhi, itachi_uchiha]).
-jutsu(jutsus_medicos, [sakura_haruno, tsunade, kabuto_yakushi]).
+jutsu_katon :- verificar(usa_jutsu_katon), !.
+jutsu_futon :- verificar(usa_jutsu_futon), !.
+jutsu_doton :- verificar(usa_jutsu_doton), !.
+jutsu_suiton :- verificar(usa_jutsu_suiton), !.
+jutsu_raiton :- verificar(usa_jutsu_raiton), !.
+jutsu_mokuton :- verificar(usa_jutsu_mokuton), !.
+jutsu_bakuton :- verificar(usa_jutsu_bakuton), !.
+jutsu_byakugan :- verificar(usa_jutsu_byakugan), !.
+jutsu_sharingan :- verificar(usa_jutsu_sharingan), !.
+jutsu_taijutsu :- verificar(usa_jutsu_taijutsu), !.
+jutsu_genjutsu :- verificar(usa_jutsu_gensutsu), !.
+jutsus_medicos :- verificar(usa_jutsus_medicos), !.
 
-/* % Lista com as classificações em ordem de prioridade
-classificacoes([cla, equipe, jutsu, sensei, aluno, cor_cabelo, cor_olhos, sexo]).
-
-% Filtrar personagens com base nas classificações
-filtrar_personagens([], Personagens) :- !, findall(X, personagem(X), Personagens).
-
-filtrar_personagens([Classificacao | Resto], Personagens) :-
-    (filtrar(Classificacao, PersonagensFiltrados) ->
-        filtrar_personagens(Resto, PersonagensFiltrados)
-    ;
-        PersonagensFiltrados = []
-    ),
-    filtrar_personagens(Resto, PersonagensRestantes),
-    append(PersonagensFiltrados, PersonagensRestantes, Personagens).
-
-filtrar_personagens([Classificacao | Resto], Personagens) :-
-    (filtrar(Classificacao, PersonagensFiltrados) ->
-        filtrar_personagens(Resto, PersonagensFiltrados)
-    ;
-        PersonagensFiltrados = []
-    ),
-    append(PersonagensFiltrados, PersonagensRestantes, Personagens),
-    filtrar_personagens(Resto, PersonagensRestantes).
-
-% Filtrar personagens por uma classificação específica
-filtrar(Classificacao, PersonagensFiltrados) :-
-    call(Classificacao, X),
-    findall(Y, personagem(Y), Personagens),
-    filtrar_por_classificacao(X, Personagens, PersonagensFiltrados).
-
-% Filtrar personagens por uma classificação específica
-filtrar_por_classificacao([], Personagens, Personagens) :- !.
-
-filtrar_por_classificacao([X | Resto], Personagens, PersonagensFiltrados) :-
-    findall(Y, call(X, Y), PersonagensComClassificacao),
-    intersection(Personagens, PersonagensComClassificacao, PersonagensRestantes),
-    filtrar_por_classificacao(Resto, PersonagensRestantes, PersonagensFiltrados).
-
-/* % Escolher um personagem dos candidatos
-escolher_personagem([Personagem], Personagem) :- !.
-escolher_personagem(Personagens, Personagem) :-
-    length(Personagens, N),
-    random(0, N, Index),
-    nth0(Index, Personagens, Personagem). */ */
-
-% Regras de classificação de personagens
-pertence_a_cla(X, Cla) :- cla(Cla, Membros), member(X, Membros).
-pertence_a_equipe(X, Equipe) :- equipe(Equipe, Membros), member(X, Membros).
-usa_jutsu(X, Jutsu) :- jutsu(Jutsu, Usuarios), member(X, Usuarios).
-seu_sexo(X, Sexo) :- sexo(Sexo, Personagens), member(X, Personagens).
-tem_cor_cabelo(X, Cor) :- cor_cabelo(Cor, Personagens), member(X, Personagens).
-tem_cor_olhos(X, Cor) :- cor_olhos(Cor, Personagens), member(X, Personagens).
-foi_sensei_de(X, Estudante) :- sensei(X, Estudantes), member(Estudante, Estudantes).
-foi_aluno_de(X, Professor) :- aluno(X, Professores), member(Professor, Professores).
-
-% Perguntar sobre clãs
-/* perguntar_cla([]).
-perguntar_cla([Cla|Resto]) :-
-    ( verificar(pertence_a_cla(_, Cla))
-        -> true
-        ; perguntar_cla(Resto)
-    ).
- */
-
-% Perguntar sobre clãs
-perguntar_cla([], _, _).
-perguntar_cla([Cla|Resto], Personagens, PersonagensFiltrados) :-
-    verificar(pertence_a_cla(_, Cla), Personagens, PersonagensFiltrados),
-    perguntar_cla(Resto, Personagens, PersonagensFiltrados).
-
-/* perguntar_equipe([]).
-perguntar_equipe([Equipe|Resto]) :-
-    ( verificar(pertence_a_equipe(_, Equipe))
-        -> true
-        ; perguntar_equipe(Resto)
-    ). */
-
-% Perguntar sobre equipes
-perguntar_equipe([], _, _).
-perguntar_equipe([Equipe|Resto], Personagens, PersonagensFiltrados) :-
-    verificar(pertence_a_equipe(_, Equipe), Personagens, PersonagensFiltrados),
-    perguntar_equipe(Resto, Personagens, PersonagensFiltrados).
-
-
-/* perguntar_jutsu([]).
-perguntar_jutsu([Jutsu|Resto]) :-
-    ( verificar(usa_jutsu(_, Jutsu))
-        -> true
-        ; perguntar_jutsu(Resto)
-    ). */
-% Perguntar sobre jutsus
-perguntar_jutsu([], _, _).
-perguntar_jutsu([Jutsu|Resto], Personagens, PersonagensFiltrados) :-
-    verificar(usa_jutsu(_, Jutsu), Personagens, PersonagensFiltrados),
-    perguntar_jutsu(Resto, Personagens, PersonagensFiltrados).
-
-
-% Perguntar sobre sexo
-perguntar_sexo([], _, _).
-perguntar_sexo([Sexo|Resto], Personagens, PersonagensFiltrados) :-
-    verificar(sexo(Sexo, _), Personagens, PersonagensFiltrados),
-    perguntar_sexo(Resto, Personagens, PersonagensFiltrados).
-/* perguntar_sexo([]).
-perguntar_sexo([Sexo|Resto]) :-
-    ( verificar(sexo(Sexo, _))
-        -> true
-        ; perguntar_sexo(Resto)
-    ). */
-
-% Perguntar sobre cor do cabelo
-perguntar_cor_cabelo([], _, _).
-perguntar_cor_cabelo([CorCabelo|Resto], Personagens, PersonagensFiltrados) :-
-    verificar(tem_cor_cabelo(_, CorCabelo), Personagens, PersonagensFiltrados),
-    perguntar_cor_cabelo(Resto, Personagens, PersonagensFiltrados).
-/* perguntar_cor_cabelo([]).
-perguntar_cor_cabelo([CorCabelo|Resto]) :-
-    ( verificar(tem_cor_cabelo(_, CorCabelo))
-        -> true
-        ; perguntar_cor_cabelo(Resto)
-    ). */
-
-% Perguntar sobre cor dos olhos
-perguntar_cor_olhos([], _, _).
-perguntar_cor_olhos([CorOlhos|Resto], Personagens, PersonagensFiltrados) :-
-    verificar(tem_cor_olhos(_, CorOlhos), Personagens, PersonagensFiltrados),
-    perguntar_cor_olhos(Resto, Personagens, PersonagensFiltrados).
-
-% Perguntar se foi sensei
-perguntar_sensei([], _, _).
-perguntar_sensei([Sensei|Resto], Personagens, PersonagensFiltrados) :-
-    verificar(foi_sensei_de(Sensei, _), Personagens, PersonagensFiltrados),
-    perguntar_sensei(Resto, Personagens, PersonagensFiltrados).
-
-% Perguntar se foi aluno
-perguntar_aluno([], _, _).
-perguntar_aluno([Aluno|Resto], Personagens, PersonagensFiltrados) :-
-    verificar(foi_aluno_de(_, Aluno), Personagens, PersonagensFiltrados),
-    perguntar_aluno(Resto, Personagens, PersonagensFiltrados).
-
-/* perguntar_cor_olhos([]).
-perguntar_cor_olhos([CorOlhos|Resto]) :-
-    ( verificar(tem_cor_olhos(_, CorOlhos))
-        -> true
-        ; perguntar_cor_olhos(Resto)
-    ).
- */
-/* % Classificação de personagens
-classificar(X, Cla) :- pertence_a_cla(X, Cla).
-classificar(X, Equipe) :- pertence_a_equipe(X, Equipe).
-classificar(X, Jutsu) :- usa_jutsu(X, Jutsu).
-classificar(X, CorCabelo) :- tem_cor_cabelo(X, CorCabelo).
-classificar(X, CorOlhos) :- tem_cor_olhos(X, CorOlhos).
-classificar(X, Sensei) :- foi_sensei_de(Sensei, X).
-classificar(X, Aluno) :- foi_aluno_de(X, Aluno). */
-
-/* % Escolhe um personagem que se encaixa nas classificações especificadas
-personagem(Classificacoes, Personagem) :-
-    % Limita o número de escolhas para no máximo 2 classificações
-    length(Classificacoes, N), N < 3,
-    % Busca todos os personagens que se encaixam nas classificações especificadas
-    findall(Personagem,
-            (member(Cla, Classificacoes),
-             cla(Cla, L),
-             member(Personagem, L)),
-            Personagens),
-    % Limita o número de personagens para no máximo 19
-    length(Personagens, M), M < 20,
-    % Escolhe um personagem da lista, evitando escolhas já feitas
-    member(Personagem, Personagens),
-    \+ member(Personagem, Classificacoes),
-    % Adiciona a classificação escolhida à lista de classificações
-    classificar(Personagem, Cla),
-    \+ member(Cla, Classificacoes),
-    append([Cla], Classificacoes, NovaClassificacoes),
-    % Faz recursão com a lista de classificações atualizada
-    personagem(NovaClassificacoes, Personagem). */
-
-/*personagem(Classificacoes, Personagem) :-
-    personagem(Classificacoes, _, Personagem).
-
- personagem(_, _, _) :- fail. % cláusula para evitar recursão infinita
-
-personagem(Classificacoes, Personagens, Personagem) :-
-    length(Classificacoes, N), N < 3, % limita o número de escolhas para no máximo 2
-    length(Personagens, M), M < 20, % limita o número de personagens para no máximo 19
-    member(Personagem, Personagens), % escolhe um personagem da lista
-    \+ member(Personagem, Classificacoes), % evita escolher personagens já escolhidos
-    classificar(Personagem, Cla),
-    \+ member(Cla, Classificacoes), % evita escolher a mesma classificação duas vezes
-    append([Cla], Classificacoes, NovaClassificacoes), % adiciona a classificação escolhida à lista de classificações
-    personagem(NovaClassificacoes, Personagens, Personagem). % recursão com a lista de classificações atualizada
-
-personagem(Classificacoes, [Cla|Outras], Personagem) :-
-    cla(Cla, L),
-    member(Personagem, L),
-    personagem(Classificacoes, Outras, Personagem).
-
-personagem(Classificacoes, [Jutsu|Outras], Personagem) :-
-    jutsu(Jutsu, L),
-    member(Personagem, L),
-    personagem(Classificacoes, Outras, Personagem).
-
-personagem(_, [], _) :- fail. */
-
-/* % Encontrar personagem baseado nas classificações
-personagem(Classificacoes, Personagem) :-
-    personagem(Classificacoes, _, Personagem).
-personagem(Classificacoes, [Cla|Outras], Personagem) :-
-    classificar(Personagem, Cla),
-    personagem(Classificacoes, Outras, Personagem).
-personagem(Classificacoes, [_, Outras], Personagem) :-
-    personagem(Classificacoes, Outras, Personagem).
-personagem([], _, _) :- fail. */
+% Personagens
+asuma_sarutobi :- cla_sarutobi, cabelo_castanho, olhos_preto, equipe_time_10, sensei_sarutobi, jutsu_katon, jutsu_taijutsu, jutsus_medicos.
+baki :- cabelo_preto, olhos_preto, equipe_sand, sensei_baki, jutsu_taijutsu.
+choji_akimichi :- cla_akimichi, cabelo_castanho, olhos_preto, equipe_time_10, sensei_sarutobi, jutsu_taijutsu, jutsus_medicos.
+danzo_shimura :- cabelo_cinza, olhos_preto, equipe_time_hiruzen, sensei_hiruzen, jutsu_taijutsu.
+deidara :- cabelo_loiro, olhos_azul, equipe_akatsuki, sensei_sasori, jutsu_katon, jutsu_doton.
+fugaku_uchiha :- cla_uchiha, cabelo_preto, olhos_sharingan, equipe_time_4_hokages, sensei_minato, jutsu_katon, jutsu_sharingan.
+gaara :- cabelo_ruivo, olhos_azul, equipe_sand, sensei_baki, jutsu_suiton, jutsu_doton.
+haku :- cabelo_prateado, olhos_azul, equipe_time_minato, sensei_minato, jutsu_suiton, jutsu_doton.
+hanabi_hyuuga :- cla_hyuuga, cabelo_preto, olhos_byakugan, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
+hashirama_senju :- cabelo_castanho, olhos_preto, equipe_time_4_hokages, sensei_hiruzen, jutsu_mokuton, jutsu_taijutsu.
+hidan :- cabelo_prateado, olhos_cinza, equipe_akatsuki, sensei_kakuzu, jutsu_taijutsu.
+hiashi_hyuuga :- cla_hyuuga, cabelo_preto, olhos_byakugan, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
+hiruzen_sarutobi :- cla_sarutobi, cabelo_branco, olhos_preto, equipe_time_hiruzen, sensei_hiruzen, jutsu_katon, jutsu_taijutsu.
+hizashi_hyuuga :- cla_hyuuga, cabelo_preto, olhos_byakugan, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
+ino_yamanaka :- cla_yamanaka, cabelo_loiro, olhos_azul, equipe_time_10, sensei_sarutobi, jutsu_taijutsu, jutsus_medicos.
+itachi_uchiha :- cla_uchiha, cabelo_preto, olhos_sharingan, equipe_akatsuki, sensei_kisame, jutsu_katon, jutsu_sharingan.
+jiraiya :- cabelo_branco, olhos_preto, equipe_time_jiraiya, sensei_jiraiya, jutsu_katon, jutsu_taijutsu.
+kabuto_yakushi :- cabelo_preto, olhos_preto, equipe_time_orochimaru, sensei_orochimaru, jutsu_katon, jutsu_taijutsu.
+kakashi_hatake :- cla_hatake, cabelo_branco, olhos_preto, equipe_time_7, sensei_minato, jutsu_katon, jutsu_taijutsu.
+kakuzu :- cabelo_branco, olhos_preto, equipe_akatsuki, sensei_hidan, jutsu_katon, jutsu_taijutsu.
+kankuro :- cabelo_preto, olhos_preto, equipe_sand, sensei_baki, jutsu_katon, jutsu_taijutsu.
+kiba_inuzuka :- cla_inuzuka, cabelo_marrom, olhos_preto, equipe_time_8, sensei_kurenai, jutsu_katon, jutsu_taijutsu.
+kisame_hoshigaki :- cabelo_azul, olhos_azul, equipe_akatsuki, sensei_itachi, jutsu_suiton, jutsu_taijutsu.
+konan :- cabelo_azul, olhos_azul, equipe_akatsuki, sensei_pein, jutsu_suiton, jutsu_taijutsu.
+kushina_uzumaki :- cla_uzumaki, cabelo_vermelho, olhos_azul, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_taijutsu.
+kurenai_yuhi :- cla_yuhi, cabelo_vermelho, olhos_preto, equipe_time_8, sensei_hinata, jutsu_katon, jutsu_taijutsu.
+might_guy :- cabelo_preto, olhos_preto, equipe_time_guy, sensei_guy, jutsu_taijutsu.
+mikoto_uchiha :- cla_uchiha, cabelo_preto, olhos_sharingan, equipe_time_4_hokages, sensei_minato, jutsu_katon, jutsu_sharingan.
+minato_namikaze :- cabelo_amarelo, olhos_azul, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_taijutsu.
+naruto_uzumaki :- cla_uzumaki, cabelo_loiro, olhos_azul, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_taijutsu.
+neji_hyuuga :- cla_hyuuga, cabelo_preto, olhos_byakugan, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
+obito_uchiha :- cla_uchiha, cabelo_preto, olhos_sharingan, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_sharingan.
+orochimaru :- cabelo_preto, olhos_amarelo, equipe_time_orochimaru, sensei_orochimaru, jutsu_katon, jutsu_taijutsu.
+rin_nohara :- cabelo_preto, olhos_preto, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_taijutsu.
+rock_lee :- cabelo_preto, olhos_preto, equipe_time_guy, sensei_guy, jutsu_taijutsu.
+sai :- cabelo_preto, olhos_preto, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_taijutsu.
+sakura_haruno :- cabelo_rosa, olhos_verde, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_taijutsu.
+sasori :- cabelo_vermelho, olhos_azul, equipe_akatsuki, sensei_kakuzu, jutsu_katon, jutsu_taijutsu.
+sasuke_uchiha :- cla_uchiha, cabelo_preto, olhos_sharingan, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_sharingan.
+shikamaru_nara :- cla_nara, cabelo_preto, olhos_preto, equipe_time_10, sensei_sarutobi, jutsu_katon, jutsu_taijutsu.
+shino_aburame :- cla_aburame, cabelo_preto, olhos_preto, equipe_time_8, sensei_hinata, jutsu_katon, jutsu_taijutsu.
+temari :- cabelo_loiro, olhos_azul, equipe_sand, sensei_baki, jutsu_suiton, jutsu_doton.
+tenten :- cabelo_preto, olhos_preto, equipe_time_10, sensei_sarutobi, jutsu_katon, jutsu_taijutsu.
+tobirama_senju :- cabelo_branco, olhos_preto, equipe_time_4_hokages, sensei_hiruzen, jutsu_mokuton, jutsu_taijutsu.
+tsunade :- cabelo_loiro, olhos_verde, equipe_time_3_sannins, sensei_hiruzen, jutsu_katon, jutsu_taijutsu.
+zabuza_momochi :- cabelo_preto, olhos_preto, equipe_time_zabuza, sensei_zabuza, jutsu_katon, jutsu_taijutsu.
+zetsu :- cabelo_preto, olhos_preto, equipe_akatsuki, sensei_pein, jutsu_katon, jutsu_taijutsu.
 
 % Perguntas ao usuário
-perguntar(Questao, Personagens, PersonagensFiltrados) :-
-    write('O personagem tem o seguinte atributo: '),
+perguntar(Questao) :-
+    write('O personagem: '),
     write(Questao),
     write(' (s|n) ? '),
     read(Resposta),
     nl,
     ( (Resposta == sim ; Resposta == s)
-        -> (include(Questao, Personagens, PersonagensFiltrados), assert(yes(Questao)))
-        ; (exclude(Questao, Personagens, PersonagensFiltrados), assert(no(Questao)), fail)
-        /* ->assert(yes(Questao)) ;
-        assert(no(Questao)), fail */
+        -> assert(yes(Questao))
+        ; assert(no(Questao)), fail
         ).
 
 % Verificar se uma resposta é sim ou não
