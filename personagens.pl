@@ -85,61 +85,150 @@ hipotese(desconhecido).
 
 % Regras de classificação
 
+% sexo_masculino
+% sexo_feminino
+% cabelo_castanho
+% cabelo_ruivo
+% cabelo_prateado
+% cabelo_azul
+% cabelo_loiro
+% cabelo_preto
+% cabelo_branco
+% cabelo_marrom
+% cabelo_amarelo
+% cabelo_rosa
+% olhos_preto
+% olhos_azul
+% olhos_branco
+% olhos_vermelho
+% olhos_amarelo
+% olhos_verde
+% cla_sarutobi
+% cla_akimichi
+% cla_sabaku
+% cla_yuki
+% cla_hyuuga
+% cla_yamanaka
+% cla_umino
+% cla_uchiha
+% cla_hatake
+% cla_inuzuka
+% cla_kaguya
+% cla_yuhi
+% cla_namikaze
+% cla_uzumaki
+% cla_nara
+% cla_aburame
+% cla_lee
+% cla_haruno
+% equipe_time_10
+% equipe_sand
+% equipe_time_zabuza
+% equipe_time_7
+% equipe_time_jiraiya
+% equipe_time_orochimaru
+% equipe_time_8
+% equipe_time_guy
+% equipe_time_4_hokages
+% equipe_time_akatsuki
+% sensei_sarutobi
+% sensei_baki
+% sensei_zabuza
+% sensei_kurenai
+% sensei_kakashi
+% sensei_kakuzu
+% sensei_hiruzen
+% sensei_orochimaru
+% sensei_guy
+% sensei_minato
+% sensei_arashi
+% sensei_tobirama
+% jutsu_katon
+% jutsu_taijutsu
+% jutsus_medicos
+% jutsu_suiton
+% jutsu_doton
+% jutsu_hyoton
+% jutsu_byakugan
+% jutsu_genjutsu
+% jutsu_sharingan
+% jutsu_medico
+% jutsu_raikiri
+% jutsu_kuchiyose
+% jutsu_kekkei_genkai
+% jutsu_hiraishin
+% jutsu_kage_bunshin
+% jutsu_kage_mane
+
 %sexo
 sexo_masculino :- verificar(eh_do_sexo_masculino), !.
 sexo_feminino :- verificar(eh_do_sexo_feminino), !.
 
 %cabelo
-cabelo_loiro :- verificar(tem_cabelo_loiro), !.
-cabelo_preto:- verificar(tem_cabelo_preto), !.
 cabelo_castanho :- verificar(tem_cabelo_castanho), !.
-cabelo_vermelho :- verificar(tem_cabelo_vermelho), !.
-cabelo_cinza :- verificar(tem_cabelo_cinza), !.
+cabelo_ruivo :- verificar(tem_cabelo_ruivo), !.
+cabelo_prateado :- verificar(tem_cabelo_prateado), !.
 cabelo_azul :- verificar(tem_cabelo_azul), !.
+cabelo_loiro :- verificar(tem_cabelo_loiro), !.
+cabelo_preto :- verificar(tem_cabelo_preto), !.
+cabelo_branco :- verificar(tem_cabelo_branco), !.
+cabelo_marrom :- verificar(tem_cabelo_marrom), !.
+cabelo_amarelo :- verificar(tem_cabelo_amarelo), !.
+cabelo_rosa :- verificar(tem_cabelo_rosa), !.
 
 % Olhos
-olhos_azul :- verificar(tem_olhos_azul), !.
 olhos_preto :- verificar(tem_olhos_preto), !.
-olhos_cinza :- verificar(tem_olhos_cinza), !.
-olhos_sharingan :- verificar(tem_olhos_sharingan), !.
-olhos_byakugan :- verificar(tem_olhos_byakugan), !.
+olhos_azul :- verificar(tem_olhos_azul), !.
+olhos_branco :- verificar(tem_olhos_branco), !.
+olhos_vermelho :- verificar(tem_olhos_vermelho), !.
+olhos_amarelo :- verificar(tem_olhos_amarelo), !.
+olhos_verde :- verificar(tem_olhos_verde), !.
 
 % Clã
-cla_uzumaki :- verificar(eh_do_cla_uzumaki), !.
-cla_uchiha :- verificar(eh_do_cla_uchiha), !.
-cla_hyuuga :- verificar(eh_do_cla_hyuuga), !.
-cla_nara :- verificar(eh_do_cla_nara), !.
-cla_akimichi :- verificar(eh_do_cla_akimichi), !.
-cla_yamanaka :- verificar(eh_do_cla_yamanaka), !.
-cla_aburame :- verificar(eh_do_cla_aburame), !.
-cla_inuzuka :- verificar(eh_do_cla_inuzuka), !.
 cla_sarutobi :- verificar(eh_do_cla_sarutobi), !.
+cla_akimichi :- verificar(eh_do_cla_akimichi), !.
+cla_sabaku :- verificar(eh_do_cla_sabaku), !.
+cla_yuki :- verificar(eh_do_cla_yuki), !.
+cla_hyuuga :- verificar(eh_do_cla_hyuuga), !.
+cla_yamanaka :- verificar(eh_do_cla_yamanaka), !.
+cla_umino :- verificar(eh_do_cla_umino), !.
+cla_uchiha :- verificar(eh_do_cla_uchiha), !.
 cla_hatake :- verificar(eh_do_cla_hatake), !.
+cla_inuzuka :- verificar(eh_do_cla_inuzuka), !.
+cla_kaguya :- verificar(eh_do_cla_kaguya), !.
 cla_yuhi :- verificar(eh_do_cla_yuhi), !.
+cla_namikaze :- verificar(eh_do_cla_namikaze), !.
+cla_uzumaki :- verificar(eh_do_cla_uzumaki), !.
+cla_nara :- verificar(eh_do_cla_nara), !.
+cla_aburame :- verificar(eh_do_cla_aburame), !.
+cla_lee :- verificar(eh_do_cla_lee), !.
+cla_haruno :- verificar(eh_do_cla_haruno), !.
 
 % Equipe
-equipe_time_7 :- verificar(eh_do_time_7), !.
 equipe_time_10 :- verificar(eh_do_time_10), !.
+equipe_sand :- verificar(eh_do_time_sand), !.
+equipe_time_zabuza :- verificar(eh_do_time_zabuza), !.
+equipe_time_7 :- verificar(eh_do_time_7), !.
+equipe_time_jiraiya :- verificar(eh_do_time_jiraiya), !.
+equipe_time_orochimaru :- verificar(eh_do_time_orochimaru), !.
 equipe_time_8 :- verificar(eh_do_time_8), !.
 equipe_time_guy :- verificar(eh_do_time_guy), !.
-equipe_sand :- verificar(eh_do_time_sand), !.
-equipe_akatsuki :- verificar(eh_do_time_akatsuki), !.
-equipe_time_minato :- verificar(eh_do_time_minato), !.
-equipe_time_hiruzen :- verificar(eh_do_time_hiruzen), !.
-equipe_time_jiraiya :- verificar(eh_do_time_jiraiya), !.
 equipe_time_4_hokages :- verificar(eh_do_time_4_hokages), !.
-equipe_time_3_sannins :- verificar(eh_do_time_3_sannins), !.
+equipe_time_akatsuki :- verificar(eh_do_time_akatsuki), !.
 
 % Sensei
-sensei_kakashi :- verificar(eh_do_sensei_kakashi), !.
-sensei_saruotbi :- verificar(eh_do_sensei_sarutobi), !.
-sensei_kurenai :- verificar(eh_do_sensei_kurenai), !.
-sensei_guy :- verificar(eh_do_sensei_guy), !.
+sensei_sarutobi :- verificar(eh_do_sensei_sarutobi), !.
 sensei_baki :- verificar(eh_do_sensei_baki), !.
-sensei_sasori :- verificar(eh_do_sensei_sasori), !.
-sensei_hiruzen :- verificar(eh_do_sensei_hiruzen), !.
+sensei_zabuza :- verificar(eh_do_sensei_zabuza), !.
+sensei_kurenai :- verificar(eh_do_sensei_kurenai), !.
+sensei_kakashi :- verificar(eh_do_sensei_kakashi), !.
 sensei_kakuzu :- verificar(eh_do_sensei_kakuzu), !.
-sensei_pain :- verificar(eh_do_sensei_pain), !.
+sensei_hiruzen :- verificar(eh_do_sensei_hiruzen), !.
+sensei_orochimaru :- verificar(eh_do_sensei_orochimaru), !.
+sensei_guy :- verificar(eh_do_sensei_guy), !.
+sensei_minato :- verificar(eh_do_sensei_minato), !.
+sensei_arashi :- verificar(eh_do_sensei_arashi), !.
+sensei_tobirama :- verificar(eh_do_sensei_tobirama), !.
 
 % Aluno
 aluno_naruto :- verificar(eh_do_aluno_naruto), !.
@@ -160,24 +249,21 @@ aluno_temari :- verificar(eh_do_aluno_temari), !.
 
 % Jutsus
 jutsu_katon :- verificar(usa_jutsu_katon), !.
-jutsu_futon :- verificar(usa_jutsu_futon), !.
-jutsu_doton :- verificar(usa_jutsu_doton), !.
-jutsu_suiton :- verificar(usa_jutsu_suiton), !.
-jutsu_raiton :- verificar(usa_jutsu_raiton), !.
-jutsu_mokuton :- verificar(usa_jutsu_mokuton), !.
-jutsu_bakuton :- verificar(usa_jutsu_bakuton), !.
-jutsu_byakugan :- verificar(usa_jutsu_byakugan), !.
-jutsu_sharingan :- verificar(usa_jutsu_sharingan), !.
 jutsu_taijutsu :- verificar(usa_jutsu_taijutsu), !.
-jutsu_genjutsu :- verificar(usa_jutsu_gensutsu), !.
 jutsus_medicos :- verificar(usa_jutsus_medicos), !.
+jutsu_suiton :- verificar(usa_jutsu_suiton), !.
+jutsu_doton :- verificar(usa_jutsu_doton), !.
+jutsu_hyoton :- verificar(usa_jutsu_hyoton), !.
+jutsu_byakugan :- verificar(usa_jutsu_byakugan), !.
+jutsu_genjutsu :- verificar(usa_jutsu_genjutsu), !.
+jutsu_sharingan :- verificar(usa_jutsu_sharingan), !.
+jutsu_medico :- verificar(usa_jutsu_medico), !.
+jutsu_raikiri :- verificar(usa_jutsu_raikiri), !.
 jutsu_kuchiyose :- verificar(usa_jutsu_kuchiyose), !.
 jutsu_kekkei_genkai :- verificar(usa_jutsu_kekkei_genkai), !.
-jutsu_hyoton :- verificar(usa_jutsu_hyoton), !.
+jutsu_hiraishin :- verificar(usa_jutsu_hiraishin), !.
 jutsu_kage_bunshin :- verificar(usa_jutsu_kage_bunshin), !.
 jutsu_kage_mane :- verificar(usa_jutsu_kage_mane), !.
-jutsu_hiraishin :- verificar(usa_jutsu_hiraishin), !.
-jutsu_raikiri :- verificar(usa_jutsu_raikiri), !.
 
 % % Personagens
 % usando a ordem do sexo, cabelo, olhos, clã, equipe, sensei, aluno, jutsu
@@ -217,7 +303,7 @@ naruto_uzumaki :- sexo_masculino, cabelo_loiro, olhos_azul, cla_uzumaki, equipe_
 
 neji_hyuuga :- sexo_masculino, cabelo_marrom, olhos_branco, cla_hyuuga, equipe_time_7, sensei_kakashi, jutsu_byakugan, jutsu_taijutsu.
 
-orochimaru :- sexo_masculino, cabelo_preto, olhos_amarelo, cla_sannin, equipe_time_orochimaru, sensei_hiruzen, jutsu_kuchiyose, jutsu_kekkei_genkai.
+orochimaru :- sexo_masculino, cabelo_preto, olhos_amarelo, equipe_time_orochimaru, sensei_hiruzen, jutsu_kuchiyose.
 
 rock_lee :- sexo_masculino, cabelo_preto, olhos_preto, cla_lee, equipe_time_guy, sensei_guy, jutsu_taijutsu.
 
