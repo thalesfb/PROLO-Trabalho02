@@ -10,62 +10,43 @@
 % - Personagens de Naruto Classico
 
 % Asuma Sarutobi
-% Baki
 % Choji Akimichi
-% Danzo Shimura
-% Deidara
-% Fugaku Uchiha
 % Gaara
 % Haku
-% Hanabi Hyuuga
-% Hashirama Senju
-% Hidan
-% Hiashi Hyuuga
-% Hiruzen Sarutobi
-% Hizashi Hyuuga
+% Hinata Hyuga
 % Ino Yamanaka
+% Iruka Umino
 % Itachi Uchiha
 % Jiraiya
 % Kabuto Yakushi
 % Kakashi Hatake
-% Kakuzu
-% Kankuro
 % Kiba Inuzuka
-% Kisame Hoshigaki
-% Konan
-% Kushina Uzumaki
+% Kimimaro
 % Kurenai Yuhi
 % Might Guy
-% Mikoto Uchiha
 % Minato Namikaze
 % Naruto Uzumaki
-% Neji Hyuuga
-% Obito Uchiha
+% Neji Hyuga
 % Orochimaru
-% Rin Nohara
 % Rock Lee
-% Sai
 % Sakura Haruno
-% Sasori
+% Sarutobi Hiruzen
 % Sasuke Uchiha
 % Shikamaru Nara
 % Shino Aburame
-% Temari
 % Tenten
-% Tobirama Senju
-% Tsunade
+% Tsunade Senju
 % Zabuza Momochi
-% Zetsu
 
-% Classificações:
-% - Cla
-% - Equipe
-% - Jutsu
-% - Sensei
-% - Aluno
+% Classificações em ordem:
+% - Sexo
 % - Cor do cabelo
 % - Cor dos olhos
-% - Sexo
+% - Cla
+% - Equipe
+% - Sensei
+% - Aluno
+% - Jutsu
 
 iniciar :- hipotese(Personagem),
         write('Eu acho que o personagem é: '),
@@ -76,52 +57,30 @@ iniciar :- hipotese(Personagem),
 % Iniciar a dedução
 % hipoteses de personagens a serem testadas
 hipotese(asuma_sarutobi) :- asuma_sarutobi, !.
-hipotese(baki) :- baki, !.
 hipotese(choji_akimichi) :- choji_akimichi, !.
-hipotese(danzo_shimura) :- danzo_shimura, !.
-hipotese(deidara) :- deidara, !.
-hipotese(fugaku_uchiha) :- fugaku_uchiha, !.
 hipotese(gaara) :- gaara, !.
 hipotese(haku) :- haku, !.
-hipotese(hanabi_hyuuga) :- hanabi_hyuuga, !.
-hipotese(hashirama_senju) :- hashirama_senju, !.
-hipotese(hidan) :- hidan, !.
-hipotese(hiashi_hyuuga) :- hiashi_hyuuga, !.
-hipotese(hiruzen_sarutobi) :- hiruzen_sarutobi, !.
-hipotese(hizashi_hyuuga) :- hizashi_hyuuga, !.
+hipotese(hinata_hyuuga) :- hinata_hyuuga, !.
 hipotese(ino_yamanaka) :- ino_yamanaka, !.
+hipotese(iruka_umino) :- iruka_umino, !.
 hipotese(itachi_uchiha) :- itachi_uchiha, !.
 hipotese(jiraiya) :- jiraiya, !.
 hipotese(kabuto_yakushi) :- kabuto_yakushi, !.
 hipotese(kakashi_hatake) :- kakashi_hatake, !.
-hipotese(kakuzu) :- kakuzu, !.
-hipotese(kankuro) :- kankuro, !.
 hipotese(kiba_inuzuka) :- kiba_inuzuka, !.
-hipotese(kisame_hoshigaki) :- kisame_hoshigaki, !.
-hipotese(konan) :- konan, !.
-hipotese(kushina_uzumaki) :- kushina_uzumaki, !.
+hipotese(kimimaro) :- kimimaro, !.
 hipotese(kurenai_yuhi) :- kurenai_yuhi, !.
 hipotese(might_guy) :- might_guy, !.
-hipotese(mikoto_uchiha) :- mikoto_uchiha, !.
 hipotese(minato_namikaze) :- minato_namikaze, !.
 hipotese(naruto_uzumaki) :- naruto_uzumaki, !.
 hipotese(neji_hyuuga) :- neji_hyuuga, !.
-hipotese(obito_uchiha) :- obito_uchiha, !.
 hipotese(orochimaru) :- orochimaru, !.
-hipotese(rin_nohara) :- rin_nohara, !.
 hipotese(rock_lee) :- rock_lee, !.
-hipotese(sai) :- sai, !.
 hipotese(sakura_haruno) :- sakura_haruno, !.
-hipotese(sasori) :- sasori, !.
+hipotese(sarutobi_hiruzen) :- sarutobi_hiruzen, !.
 hipotese(sasuke_uchiha) :- sasuke_uchiha, !.
 hipotese(shikamaru_nara) :- shikamaru_nara, !.
 hipotese(shino_aburame) :- shino_aburame, !.
-hipotese(temari) :- temari , !.
-hipotese(tenten) :- tenten, !.
-hipotese(tobirama_senju) :- tobirama_senju, !.
-hipotese(tsunade) :- tsunade, !.
-hipotese(zabuza_momochi) :- zabuza_momochi, !.
-hipotese(zetsu) :- zetsu, !.
 hipotese(desconhecido).
 
 % Regras de classificação
@@ -212,102 +171,65 @@ jutsu_sharingan :- verificar(usa_jutsu_sharingan), !.
 jutsu_taijutsu :- verificar(usa_jutsu_taijutsu), !.
 jutsu_genjutsu :- verificar(usa_jutsu_gensutsu), !.
 jutsus_medicos :- verificar(usa_jutsus_medicos), !.
+jutsu_kuchiyose :- verificar(usa_jutsu_kuchiyose), !.
+jutsu_kekkei_genkai :- verificar(usa_jutsu_kekkei_genkai), !.
+jutsu_hyoton :- verificar(usa_jutsu_hyoton), !.
+jutsu_kage_bunshin :- verificar(usa_jutsu_kage_bunshin), !.
+jutsu_kage_mane :- verificar(usa_jutsu_kage_mane), !.
+jutsu_hiraishin :- verificar(usa_jutsu_hiraishin), !.
+jutsu_raikiri :- verificar(usa_jutsu_raikiri), !.
 
 % % Personagens
 % usando a ordem do sexo, cabelo, olhos, clã, equipe, sensei, aluno, jutsu
 asuma_sarutobi :- sexo_masculino, cabelo_castanho, olhos_preto, cla_sarutobi, equipe_time_10, sensei_saruotbi, jutsu_katon, jutsu_taijutsu, jutsus_medicos.
 
-baki :- sexo_masculino, cabelo_preto, olhos_preto, equipe_sand, sensei_baki, jutsu_taijutsu.
-
 choji_akimichi :- sexo_masculino, cabelo_castanho, olhos_preto, cla_akimichi, equipe_time_10, sensei_saruotbi, jutsu_taijutsu, jutsus_medicos.
 
-danzo_shimura :- sexo_masculino, cabelo_cinza, olhos_preto, equipe_time_hiruzen, sensei_hiruzen, jutsu_taijutsu.
+gaara :- sexo_masculino, cabelo_ruivo, olhos_azul, cla_sabaku, equipe_sand, sensei_baki, jutsu_suiton, jutsu_doton.
 
-deidara :- sexo_masculino, cabelo_loiro, olhos_azul, equipe_akatsuki, sensei_sasori, jutsu_katon, jutsu_doton.
+haku :- sexo_masculino, cabelo_prateado, olhos_azul, cla_yuki, equipe_time_zabuza, sensei_zabuza, jutsu_suiton, jutsu_hyoton.
 
-fugaku_uchiha :- sexo_masculino, cabelo_preto, olhos_sharingan, equipe_time_4_hokages, sensei_minato, jutsu_katon, jutsu_sharingan.
+hinata_hyuuga :- sexo_feminino, cabelo_azul, olhos_branco, cla_hyuuga, equipe_time_7, sensei_kurenai, jutsu_byakugan, jutsu_taijutsu.
 
-gaara :- sexo_masculino, cabelo_vermelho, olhos_azul, equipe_sand, sensei_baki, jutsu_suiton, jutsu_doton.
+ino_yamanaka :- sexo_feminino, cabelo_loiro, olhos_azul, cla_yamanaka, equipe_time_10, sensei_kakashi, jutsu_genjutsu.
 
-haku :- sexo_masculino, cabelo_cinza, olhos_azul, equipe_time_minato, sensei_minato, jutsu_suiton, jutsu_doton.
+iruka_umino :- sexo_masculino, cabelo_preto, olhos_preto, cla_umino, equipe_time_7, sensei_kakashi, jutsu_taijutsu.
 
-hanabi_hyuuga :- sexo_feminino, cabelo_preto, olhos_byakugan, cla_hyuuga, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
+itachi_uchiha :- sexo_masculino, cabelo_preto, olhos_vermelho, cla_uchiha, equipe_time_akatsuki, sensei_kakuzu, jutsu_genjutsu, jutsu_sharingan.
 
-hashirama_senju :- sexo_masculino, cabelo_castanho, olhos_preto, equipe_time_4_hokages, sensei_hiruzen, jutsu_mokuton, jutsu_taijutsu.
+jiraiya :- sexo_masculino, cabelo_branco, olhos_preto, cla_sarutobi, equipe_time_jiraiya, sensei_hiruzen, jutsu_suiton, jutsu_taijutsu.
 
-hidan :- sexo_masculino, cabelo_cinza, olhos_cinza, equipe_akatsuki, sensei_kakuzu, jutsu_taijutsu.
+kabuto_yakushi :- sexo_masculino, cabelo_preto, olhos_preto, cla_yakushi, equipe_time_orochimaru, sensei_orochimaru, jutsu_medico, jutsu_genjutsu.
 
-hiashi_hyuuga :- sexo_masculino, cabelo_preto, olhos_byakugan, cla_hyuuga, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
+kakashi_hatake :- sexo_masculino, cabelo_branco, olhos_preto, cla_hatake, equipe_time_7, sensei_minato, jutsu_katon, jutsu_raikiri.
 
-hiruzen_sarutobi :- sexo_masculino, cabelo_cinza, olhos_preto, cla_sarutobi, equipe_time_hiruzen, sensei_hiruzen, jutsu_katon, jutsu_taijutsu.
+kiba_inuzuka :- sexo_masculino, cabelo_marrom, olhos_preto, cla_inuzuka, equipe_time_8, sensei_kurenai, jutsu_kuchiyose, jutsu_taijutsu.
 
-hizashi_hyuuga :- sexo_masculino, cabelo_preto, olhos_byakugan, cla_hyuuga, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
+kimimaro :- sexo_masculino, cabelo_branco, olhos_preto, cla_kaguya, equipe_time_orochimaru, sensei_orochimaru, jutsu_kekkei_genkai, jutsu_taijutsu.
 
-ino_yamanaka :- sexo_feminino, cabelo_loiro, olhos_azul, cla_yamanaka, equipe_time_10, sensei_saruotbi, jutsu_taijutsu, jutsus_medicos.
+kurenai_yuhi :- sexo_feminino, cabelo_vermelho, olhos_vermelho, cla_yuhi, equipe_time_8, sensei_arashi, jutsu_genjutsu.
 
-itachi_uchiha :- sexo_masculino, cabelo_preto, olhos_sharingan, cla_uchiha, equipe_akatsuki, sensei_kisame, jutsu_katon, jutsu_sharingan.
+might_guy :- sexo_masculino, cabelo_preto, olhos_preto, cla_hatake, equipe_time_guy, sensei_kakashi, jutsu_taijutsu.
 
-jiraiya :- sexo_masculino, cabelo_cinza, olhos_preto, equipe_time_jiraiya, sensei_jiraiya, jutsu_katon, jutsu_taijutsu.
+minato_namikaze :- sexo_masculino, cabelo_amarelo, olhos_azul, cla_namikaze, equipe_time_minato, sensei_jiraiya, jutsu_hiraishin, jutsu_katon.
 
-kabuto_yakushi :- sexo_masculino, cabelo_preto, olhos_preto, equipe_time_orochimaru, sensei_orochimaru, jutsu_katon, jutsu_taijutsu.
+naruto_uzumaki :- sexo_masculino, cabelo_loiro, olhos_azul, cla_uzumaki, equipe_time_7, sensei_kakashi, jutsu_kage_bunshin, jutsu_katon.
 
-kakashi_hatake :- sexo_masculino, cabelo_cinza, olhos_preto, cla_hatake, equipe_time_7, sensei_minato, jutsu_katon, jutsu_taijutsu.
+neji_hyuuga :- sexo_masculino, cabelo_marrom, olhos_branco, cla_hyuuga, equipe_time_7, sensei_kakashi, jutsu_byakugan, jutsu_taijutsu.
 
-kakuzu :- sexo_masculino, cabelo_cinza, olhos_preto, equipe_akatsuki, sensei_hidan, jutsu_katon, jutsu_taijutsu.
+orochimaru :- sexo_masculino, cabelo_preto, olhos_amarelo, cla_sannin, equipe_time_orochimaru, sensei_hiruzen, jutsu_kuchiyose, jutsu_kekkei_genkai.
 
-kankuro :- sexo_masculino, cabelo_preto, olhos_preto, equipe_sand, sensei_baki, jutsu_katon, jutsu_taijutsu.
+rock_lee :- sexo_masculino, cabelo_preto, olhos_preto, cla_lee, equipe_time_guy, sensei_guy, jutsu_taijutsu.
 
-kiba_inuzuka :- sexo_masculino, cabelo_marrom, olhos_preto, cla_inuzuka, equipe_time_8, sensei_kurenai, jutsu_katon, jutsu_taijutsu.
+sakura_haruno :- sexo_feminino, cabelo_rosa, olhos_verde, cla_haruno, equipe_time_7, sensei_kakashi, jutsu_kuchiyose, jutsu_taijutsu.
 
-kisame_hoshigaki :- sexo_masculino, cabelo_azul, olhos_azul, equipe_akatsuki, sensei_itachi, jutsu_suiton, jutsu_taijutsu.
+sarutobi_hiruzen :- sexo_masculino, cabelo_branco, olhos_preto, cla_sarutobi, equipe_time_4_hokages, sensei_tobirama, jutsu_katon, jutsu_taijutsu.
 
-konan :- sexo_feminino, cabelo_azul, olhos_azul, equipe_akatsuki, sensei_pain, jutsu_suiton, jutsu_taijutsu.
+sasuke_uchiha :- sexo_masculino, cabelo_preto, olhos_preto, cla_uchiha, equipe_time_7, sensei_orochimaru, jutsu_katon, jutsu_sharingan.
 
-kushina_uzumaki :- sexo_feminino, cabelo_vermelho, olhos_azul, cla_uzumaki, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_taijutsu.
+shikamaru_nara :- sexo_masculino, cabelo_preto, olhos_preto, cla_nara, equipe_time_10, sensei_arashi, jutsu_kage_mane, jutsu_taijutsu.
 
-kurenai_yuhi :- sexo_feminino, cabelo_vermelho, olhos_preto, cla_yuhi, equipe_time_8, sensei_hinata, jutsu_katon, jutsu_taijutsu.
-
-might_guy :- sexo_masculino, cabelo_preto, olhos_preto, equipe_time_guy, sensei_guy, jutsu_taijutsu.
-
-mikoto_uchiha :- sexo_feminino, cabelo_preto, olhos_sharingan, cla_uchiha, equipe_time_4_hokages, sensei_minato, jutsu_katon, jutsu_sharingan.
-
-minato_namikaze :- sexo_masculino, cabelo_amarelo, olhos_azul, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_taijutsu.
-
-naruto_uzumaki :- sexo_masculino, cabelo_loiro, olhos_azul, cla_uzumaki, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_taijutsu.
-
-neji_hyuuga :- sexo_masculino, cabelo_preto, olhos_byakugan, cla_hyuuga, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
-
-obito_uchiha :- sexo_masculino, cabelo_preto, olhos_sharingan, cla_uchiha, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_sharingan.
-
-orochimaru :- sexo_masculino, cabelo_preto, olhos_amarelo, equipe_time_orochimaru, sensei_orochimaru, jutsu_katon, jutsu_taijutsu.
-
-rin_nohara :- sexo_feminino, cabelo_preto, olhos_preto, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_taijutsu.
-
-rock_lee :- sexo_masculino, cabelo_preto, olhos_preto, equipe_time_guy, sensei_guy, jutsu_taijutsu.
-
-sai :- sexo_masculino, cabelo_preto, olhos_preto, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_taijutsu.
-
-sakura_haruno :- sexo_feminino, cabelo_rosa, olhos_verde, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_taijutsu.
-
-sasori :- sexo_masculino, cabelo_vermelho, olhos_azul, equipe_akatsuki, sensei_kakuzu, jutsu_katon, jutsu_taijutsu.
-
-sasuke_uchiha :- sexo_masculino, cla_uchiha, cabelo_preto, olhos_sharingan, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_sharingan.
-
-shikamaru_nara :- sexo_masculino, cla_nara, cabelo_preto, olhos_preto, equipe_time_10, sensei_sarutobi, jutsu_katon, jutsu_taijutsu.
-
-shino_aburame :- sexo_masculino, cla_aburame, cabelo_preto, olhos_preto, equipe_time_8, sensei_hinata, jutsu_katon, jutsu_taijutsu.
-
-temari :- sexo_feminino, cabelo_loiro, olhos_azul, equipe_sand, sensei_baki, jutsu_suiton, jutsu_doton.
-
-tenten :- sexo_feminino, cabelo_preto, olhos_preto, equipe_time_10, sensei_sarutobi, jutsu_katon, jutsu_taijutsu.
-
-tobirama_senju :- sexo_masculino, cabelo_cinza, olhos_preto, equipe_time_4_hokages, sensei_hiruzen, jutsu_mokuton, jutsu_taijutsu.
-
-tsunade :- sexo_feminino, cabelo_loiro, olhos_verde, equipe_time_3_sannins, sensei_hiruzen, jutsu_katon, jutsu_taijutsu.
-
-zabuza_momochi :- sexo_masculino, cabelo_preto, olhos_preto, equipe_time_zabuza, sensei_zabuza, jutsu_katon, jutsu_taijutsu.
-
-zetsu :- sexo_masculino, cabelo_preto, olhos_preto, equipe_akatsuki, sensei_pain, jutsu_katon, jutsu_taijutsu.
+shino_aburame :- sexo_masculino, cabelo_preto, olhos_preto, cla_aburame, equipe_time_8, sensei_kurenai, jutsu_kuchiyose, jutsu_taijutsu.
 
 % Perguntas ao usuário
 perguntar(Questao) :-
@@ -318,7 +240,9 @@ perguntar(Questao) :-
     nl,
     ( (Resposta == sim ; Resposta == s)
         -> assert(yes(Questao))
-        ; assert(no(Questao)), fail
+        ; (Resposta == nao ; Resposta == n)
+        -> assert(no(Questao))
+        ; fail
         ).
 
 :- dynamic yes/1,no/1.
