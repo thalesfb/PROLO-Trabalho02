@@ -143,6 +143,7 @@ olhos_azul :- verificar(tem_olhos_azul), !.
 olhos_preto :- verificar(tem_olhos_preto), !.
 olhos_cinza :- verificar(tem_olhos_cinza), !.
 olhos_sharingan :- verificar(tem_olhos_sharingan), !.
+olhos_byakugan :- verificar(tem_olhos_byakugan), !.
 
 % Clã
 cla_uzumaki :- verificar(eh_do_cla_uzumaki), !.
@@ -155,6 +156,7 @@ cla_aburame :- verificar(eh_do_cla_aburame), !.
 cla_inuzuka :- verificar(eh_do_cla_inuzuka), !.
 cla_sarutobi :- verificar(eh_do_cla_sarutobi), !.
 cla_hatake :- verificar(eh_do_cla_hatake), !.
+cla_yuhi :- verificar(eh_do_cla_yuhi), !.
 
 % Equipe
 equipe_time_7 :- verificar(eh_do_time_7), !.
@@ -175,6 +177,10 @@ sensei_saruotbi :- verificar(eh_do_sensei_sarutobi), !.
 sensei_kurenai :- verificar(eh_do_sensei_kurenai), !.
 sensei_guy :- verificar(eh_do_sensei_guy), !.
 sensei_baki :- verificar(eh_do_sensei_baki), !.
+sensei_sasori :- verificar(eh_do_sensei_sasori), !.
+sensei_hiruzen :- verificar(eh_do_sensei_hiruzen), !.
+sensei_kakuzu :- verificar(eh_do_sensei_kakuzu), !.
+sensei_pain :- verificar(eh_do_sensei_pain), !.
 
 % Aluno
 aluno_naruto :- verificar(eh_do_aluno_naruto), !.
@@ -192,7 +198,6 @@ aluno_tenten :- verificar(eh_do_aluno_tenten), !.
 aluno_gaara :- verificar(eh_do_aluno_gaara), !.
 aluno_kankuro :- verificar(eh_do_aluno_kankuro), !.
 aluno_temari :- verificar(eh_do_aluno_temari), !.
-aluno_itachi :- verificar(eh_do_aluno_itachi), !.
 
 % Jutsus
 jutsu_katon :- verificar(usa_jutsu_katon), !.
@@ -208,54 +213,101 @@ jutsu_taijutsu :- verificar(usa_jutsu_taijutsu), !.
 jutsu_genjutsu :- verificar(usa_jutsu_gensutsu), !.
 jutsus_medicos :- verificar(usa_jutsus_medicos), !.
 
-% Personagens
-asuma_sarutobi :- cla_sarutobi, cabelo_castanho, olhos_preto, equipe_time_10, sensei_sarutobi, jutsu_katon, jutsu_taijutsu, jutsus_medicos.
-baki :- cabelo_preto, olhos_preto, equipe_sand, sensei_baki, jutsu_taijutsu.
-choji_akimichi :- cla_akimichi, cabelo_castanho, olhos_preto, equipe_time_10, sensei_sarutobi, jutsu_taijutsu, jutsus_medicos.
-danzo_shimura :- cabelo_cinza, olhos_preto, equipe_time_hiruzen, sensei_hiruzen, jutsu_taijutsu.
-deidara :- cabelo_loiro, olhos_azul, equipe_akatsuki, sensei_sasori, jutsu_katon, jutsu_doton.
-fugaku_uchiha :- cla_uchiha, cabelo_preto, olhos_sharingan, equipe_time_4_hokages, sensei_minato, jutsu_katon, jutsu_sharingan.
-gaara :- cabelo_vermelho, olhos_azul, equipe_sand, sensei_baki, jutsu_suiton, jutsu_doton.
-haku :- cabelo_cinza, olhos_azul, equipe_time_minato, sensei_minato, jutsu_suiton, jutsu_doton.
-hanabi_hyuuga :- cla_hyuuga, cabelo_preto, olhos_byakugan, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
-hashirama_senju :- cabelo_castanho, olhos_preto, equipe_time_4_hokages, sensei_hiruzen, jutsu_mokuton, jutsu_taijutsu.
-hidan :- cabelo_cinza, olhos_cinza, equipe_akatsuki, sensei_kakuzu, jutsu_taijutsu.
-hiashi_hyuuga :- cla_hyuuga, cabelo_preto, olhos_byakugan, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
-hiruzen_sarutobi :- cla_sarutobi, cabelo_cinza, olhos_preto, equipe_time_hiruzen, sensei_hiruzen, jutsu_katon, jutsu_taijutsu.
-hizashi_hyuuga :- cla_hyuuga, cabelo_preto, olhos_byakugan, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
-ino_yamanaka :- cla_yamanaka, cabelo_loiro, olhos_azul, equipe_time_10, sensei_sarutobi, jutsu_taijutsu, jutsus_medicos.
-itachi_uchiha :- cla_uchiha, cabelo_preto, olhos_sharingan, equipe_akatsuki, sensei_kisame, jutsu_katon, jutsu_sharingan.
-jiraiya :- cabelo_cinza, olhos_preto, equipe_time_jiraiya, sensei_jiraiya, jutsu_katon, jutsu_taijutsu.
-kabuto_yakushi :- cabelo_preto, olhos_preto, equipe_time_orochimaru, sensei_orochimaru, jutsu_katon, jutsu_taijutsu.
-kakashi_hatake :- cla_hatake, cabelo_cinza, olhos_preto, equipe_time_7, sensei_minato, jutsu_katon, jutsu_taijutsu.
-kakuzu :- cabelo_cinza, olhos_preto, equipe_akatsuki, sensei_hidan, jutsu_katon, jutsu_taijutsu.
-kankuro :- cabelo_preto, olhos_preto, equipe_sand, sensei_baki, jutsu_katon, jutsu_taijutsu.
-kiba_inuzuka :- cla_inuzuka, cabelo_marrom, olhos_preto, equipe_time_8, sensei_kurenai, jutsu_katon, jutsu_taijutsu.
-kisame_hoshigaki :- cabelo_azul, olhos_azul, equipe_akatsuki, sensei_itachi, jutsu_suiton, jutsu_taijutsu.
-konan :- cabelo_azul, olhos_azul, equipe_akatsuki, sensei_pein, jutsu_suiton, jutsu_taijutsu.
-kushina_uzumaki :- cla_uzumaki, cabelo_vermelho, olhos_azul, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_taijutsu.
-kurenai_yuhi :- cla_yuhi, cabelo_vermelho, olhos_preto, equipe_time_8, sensei_hinata, jutsu_katon, jutsu_taijutsu.
-might_guy :- cabelo_preto, olhos_preto, equipe_time_guy, sensei_guy, jutsu_taijutsu.
-mikoto_uchiha :- cla_uchiha, cabelo_preto, olhos_sharingan, equipe_time_4_hokages, sensei_minato, jutsu_katon, jutsu_sharingan.
-minato_namikaze :- cabelo_amarelo, olhos_azul, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_taijutsu.
-naruto_uzumaki :- cla_uzumaki, cabelo_loiro, olhos_azul, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_taijutsu.
-neji_hyuuga :- cla_hyuuga, cabelo_preto, olhos_byakugan, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
-obito_uchiha :- cla_uchiha, cabelo_preto, olhos_sharingan, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_sharingan.
-orochimaru :- cabelo_preto, olhos_amarelo, equipe_time_orochimaru, sensei_orochimaru, jutsu_katon, jutsu_taijutsu.
-rin_nohara :- cabelo_preto, olhos_preto, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_taijutsu.
-rock_lee :- cabelo_preto, olhos_preto, equipe_time_guy, sensei_guy, jutsu_taijutsu.
-sai :- cabelo_preto, olhos_preto, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_taijutsu.
-sakura_haruno :- cabelo_rosa, olhos_verde, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_taijutsu.
-sasori :- cabelo_vermelho, olhos_azul, equipe_akatsuki, sensei_kakuzu, jutsu_katon, jutsu_taijutsu.
-sasuke_uchiha :- cla_uchiha, cabelo_preto, olhos_sharingan, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_sharingan.
-shikamaru_nara :- cla_nara, cabelo_preto, olhos_preto, equipe_time_10, sensei_sarutobi, jutsu_katon, jutsu_taijutsu.
-shino_aburame :- cla_aburame, cabelo_preto, olhos_preto, equipe_time_8, sensei_hinata, jutsu_katon, jutsu_taijutsu.
-temari :- cabelo_loiro, olhos_azul, equipe_sand, sensei_baki, jutsu_suiton, jutsu_doton.
-tenten :- cabelo_preto, olhos_preto, equipe_time_10, sensei_sarutobi, jutsu_katon, jutsu_taijutsu.
-tobirama_senju :- cabelo_cinza, olhos_preto, equipe_time_4_hokages, sensei_hiruzen, jutsu_mokuton, jutsu_taijutsu.
-tsunade :- cabelo_loiro, olhos_verde, equipe_time_3_sannins, sensei_hiruzen, jutsu_katon, jutsu_taijutsu.
-zabuza_momochi :- cabelo_preto, olhos_preto, equipe_time_zabuza, sensei_zabuza, jutsu_katon, jutsu_taijutsu.
-zetsu :- cabelo_preto, olhos_preto, equipe_akatsuki, sensei_pein, jutsu_katon, jutsu_taijutsu.
+% % Personagens
+% usando a ordem do sexo, cabelo, olhos, clã, equipe, sensei, aluno, jutsu
+asuma_sarutobi :- sexo_masculino, cabelo_castanho, olhos_preto, cla_sarutobi, equipe_time_10, sensei_saruotbi, jutsu_katon, jutsu_taijutsu, jutsus_medicos.
+
+baki :- sexo_masculino, cabelo_preto, olhos_preto, equipe_sand, sensei_baki, jutsu_taijutsu.
+
+choji_akimichi :- sexo_masculino, cabelo_castanho, olhos_preto, cla_akimichi, equipe_time_10, sensei_saruotbi, jutsu_taijutsu, jutsus_medicos.
+
+danzo_shimura :- sexo_masculino, cabelo_cinza, olhos_preto, equipe_time_hiruzen, sensei_hiruzen, jutsu_taijutsu.
+
+deidara :- sexo_masculino, cabelo_loiro, olhos_azul, equipe_akatsuki, sensei_sasori, jutsu_katon, jutsu_doton.
+
+fugaku_uchiha :- sexo_masculino, cabelo_preto, olhos_sharingan, equipe_time_4_hokages, sensei_minato, jutsu_katon, jutsu_sharingan.
+
+gaara :- sexo_masculino, cabelo_vermelho, olhos_azul, equipe_sand, sensei_baki, jutsu_suiton, jutsu_doton.
+
+haku :- sexo_masculino, cabelo_cinza, olhos_azul, equipe_time_minato, sensei_minato, jutsu_suiton, jutsu_doton.
+
+hanabi_hyuuga :- sexo_feminino, cabelo_preto, olhos_byakugan, cla_hyuuga, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
+
+hashirama_senju :- sexo_masculino, cabelo_castanho, olhos_preto, equipe_time_4_hokages, sensei_hiruzen, jutsu_mokuton, jutsu_taijutsu.
+
+hidan :- sexo_masculino, cabelo_cinza, olhos_cinza, equipe_akatsuki, sensei_kakuzu, jutsu_taijutsu.
+
+hiashi_hyuuga :- sexo_masculino, cabelo_preto, olhos_byakugan, cla_hyuuga, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
+
+hiruzen_sarutobi :- sexo_masculino, cabelo_cinza, olhos_preto, cla_sarutobi, equipe_time_hiruzen, sensei_hiruzen, jutsu_katon, jutsu_taijutsu.
+
+hizashi_hyuuga :- sexo_masculino, cabelo_preto, olhos_byakugan, cla_hyuuga, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
+
+ino_yamanaka :- sexo_feminino, cabelo_loiro, olhos_azul, cla_yamanaka, equipe_time_10, sensei_saruotbi, jutsu_taijutsu, jutsus_medicos.
+
+itachi_uchiha :- sexo_masculino, cabelo_preto, olhos_sharingan, cla_uchiha, equipe_akatsuki, sensei_kisame, jutsu_katon, jutsu_sharingan.
+
+jiraiya :- sexo_masculino, cabelo_cinza, olhos_preto, equipe_time_jiraiya, sensei_jiraiya, jutsu_katon, jutsu_taijutsu.
+
+kabuto_yakushi :- sexo_masculino, cabelo_preto, olhos_preto, equipe_time_orochimaru, sensei_orochimaru, jutsu_katon, jutsu_taijutsu.
+
+kakashi_hatake :- sexo_masculino, cabelo_cinza, olhos_preto, cla_hatake, equipe_time_7, sensei_minato, jutsu_katon, jutsu_taijutsu.
+
+kakuzu :- sexo_masculino, cabelo_cinza, olhos_preto, equipe_akatsuki, sensei_hidan, jutsu_katon, jutsu_taijutsu.
+
+kankuro :- sexo_masculino, cabelo_preto, olhos_preto, equipe_sand, sensei_baki, jutsu_katon, jutsu_taijutsu.
+
+kiba_inuzuka :- sexo_masculino, cabelo_marrom, olhos_preto, cla_inuzuka, equipe_time_8, sensei_kurenai, jutsu_katon, jutsu_taijutsu.
+
+kisame_hoshigaki :- sexo_masculino, cabelo_azul, olhos_azul, equipe_akatsuki, sensei_itachi, jutsu_suiton, jutsu_taijutsu.
+
+konan :- sexo_feminino, cabelo_azul, olhos_azul, equipe_akatsuki, sensei_pain, jutsu_suiton, jutsu_taijutsu.
+
+kushina_uzumaki :- sexo_feminino, cabelo_vermelho, olhos_azul, cla_uzumaki, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_taijutsu.
+
+kurenai_yuhi :- sexo_feminino, cabelo_vermelho, olhos_preto, cla_yuhi, equipe_time_8, sensei_hinata, jutsu_katon, jutsu_taijutsu.
+
+might_guy :- sexo_masculino, cabelo_preto, olhos_preto, equipe_time_guy, sensei_guy, jutsu_taijutsu.
+
+mikoto_uchiha :- sexo_feminino, cabelo_preto, olhos_sharingan, cla_uchiha, equipe_time_4_hokages, sensei_minato, jutsu_katon, jutsu_sharingan.
+
+minato_namikaze :- sexo_masculino, cabelo_amarelo, olhos_azul, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_taijutsu.
+
+naruto_uzumaki :- sexo_masculino, cabelo_loiro, olhos_azul, cla_uzumaki, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_taijutsu.
+
+neji_hyuuga :- sexo_masculino, cabelo_preto, olhos_byakugan, cla_hyuuga, equipe_time_8, sensei_hinata, jutsu_byakugan, jutsu_taijutsu.
+
+obito_uchiha :- sexo_masculino, cabelo_preto, olhos_sharingan, cla_uchiha, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_sharingan.
+
+orochimaru :- sexo_masculino, cabelo_preto, olhos_amarelo, equipe_time_orochimaru, sensei_orochimaru, jutsu_katon, jutsu_taijutsu.
+
+rin_nohara :- sexo_feminino, cabelo_preto, olhos_preto, equipe_time_minato, sensei_minato, jutsu_katon, jutsu_taijutsu.
+
+rock_lee :- sexo_masculino, cabelo_preto, olhos_preto, equipe_time_guy, sensei_guy, jutsu_taijutsu.
+
+sai :- sexo_masculino, cabelo_preto, olhos_preto, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_taijutsu.
+
+sakura_haruno :- sexo_feminino, cabelo_rosa, olhos_verde, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_taijutsu.
+
+sasori :- sexo_masculino, cabelo_vermelho, olhos_azul, equipe_akatsuki, sensei_kakuzu, jutsu_katon, jutsu_taijutsu.
+
+sasuke_uchiha :- sexo_masculino, cla_uchiha, cabelo_preto, olhos_sharingan, equipe_time_7, sensei_kakashi, jutsu_katon, jutsu_sharingan.
+
+shikamaru_nara :- sexo_masculino, cla_nara, cabelo_preto, olhos_preto, equipe_time_10, sensei_sarutobi, jutsu_katon, jutsu_taijutsu.
+
+shino_aburame :- sexo_masculino, cla_aburame, cabelo_preto, olhos_preto, equipe_time_8, sensei_hinata, jutsu_katon, jutsu_taijutsu.
+
+temari :- sexo_feminino, cabelo_loiro, olhos_azul, equipe_sand, sensei_baki, jutsu_suiton, jutsu_doton.
+
+tenten :- sexo_feminino, cabelo_preto, olhos_preto, equipe_time_10, sensei_sarutobi, jutsu_katon, jutsu_taijutsu.
+
+tobirama_senju :- sexo_masculino, cabelo_cinza, olhos_preto, equipe_time_4_hokages, sensei_hiruzen, jutsu_mokuton, jutsu_taijutsu.
+
+tsunade :- sexo_feminino, cabelo_loiro, olhos_verde, equipe_time_3_sannins, sensei_hiruzen, jutsu_katon, jutsu_taijutsu.
+
+zabuza_momochi :- sexo_masculino, cabelo_preto, olhos_preto, equipe_time_zabuza, sensei_zabuza, jutsu_katon, jutsu_taijutsu.
+
+zetsu :- sexo_masculino, cabelo_preto, olhos_preto, equipe_akatsuki, sensei_pain, jutsu_katon, jutsu_taijutsu.
 
 % Perguntas ao usuário
 perguntar(Questao) :-
