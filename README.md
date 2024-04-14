@@ -55,7 +55,7 @@ Para deduzir a identidade de um personagem, o sistema faz perguntas sobre as seg
 
 ### Cor do Cabelo
 
--cabelo_castanho, cabelo_ruivo, cabelo_prateado, cabelo_azul, cabelo_loiro, cabelo_preto, cabelo_branco, cabelo_marrom, cabelo_amarelo, cabelo_rosa: Cada um verifica se o personagem possui a cor de cabelo especificada.
+-cabelo_castanho, cabelo_ruivo, cabelo_azul, cabelo_loiro, cabelo_preto, cabelo_branco, cabelo_marrom, cabelo_rosa: Cada um verifica se o personagem possui a cor de cabelo especificada.
 
 ### Cor dos Olhos
 
@@ -77,9 +77,16 @@ Para deduzir a identidade de um personagem, o sistema faz perguntas sobre as seg
 
 - jutsu_katon (fogo), jutsu_taijutsu (corpo a corpo), jutsus_medicos, jutsu_suiton (água), e outros: Cada jutsu verifica se o personagem é capaz de realizar a técnica especificada.
 
-## Iniciando o Sistema
+# Manual do Usuário
 
-Para começar a usar o sistema, digite `iniciar`. O programa então fará perguntas sequenciais com base nas características mais distintivas dos personagens. O usuário deve responder com `sim` ou `s` para afirmar e `nao` ou `n` para negar.
+- Iniciar a Sessão: Para começar a utilizar o sistema, você deve iniciar a sessão digitando `iniciar.`. no console Prolog. Isso iniciará o processo de dedução.
+
+- Responder Perguntas: O sistema fará uma série de perguntas sobre as características dos personagens (sexo, cor do cabelo, cor dos olhos, clã, etc.). Responda cada pergunta com s (sim) ou qualquer outra entrada para não conforme o personagem que você está pensando.
+
+- Resultado da Dedução: Após responder às perguntas, o sistema usará as respostas para identificar o personagem com base nas regras definidas no código. O nome do personagem será exibido, indicando a conclusão do sistema.
+
+**_Exemplo Prático_**
+Suponha que você pense em *Naruto Uzumaki*. O sistema pode perguntar:
 
 ## Exemplo de Sessão de Dedução
 
@@ -94,9 +101,10 @@ O personagem usa_justsu_kage_bushin? s.
 O personagem usa_justsu_katon? s.
 Eu acho que o personagem é: naruto_uzumaki
 ```
+Respondendo afirmativamente às perguntas corretas, o sistema eventualmente deduzirá que você pensou em "Naruto Uzumaki".
 
-## Fluxo do Programa
+# Detalhes Técnicos
 
-O sistema usa as respostas para restringir progressivamente as possibilidades até chegar a um personagem específico. Se a dedução inicial estiver incorreta, o sistema fará perguntas adicionais até que uma conclusão correta seja alcançada ou todas as opções sejam esgotadas.
+O sistema utiliza uma abordagem de lógica baseada em regras para deduzir qual personagem está sendo descrito. A base de conhecimento contém regras para cada personagem, e a execução do código segue uma lógica de perguntas e respostas para estreitar as possibilidades até chegar a uma conclusão. A utilização de assert e retract ajuda a gerenciar o estado das respostas durante a sessão, garantindo que as deduções sejam feitas com base nas informações mais atuais fornecidas pelo usuário.
 
-Esta documentação deve fornecer um guia completo para entender e interagir com o sistema especialista desenvolvido para a disciplina de Programação Lógica e Funcional.
+Este sistema é um exemplo prático de como a programação em Prolog pode ser utilizada para construir sistemas especialistas complexos e interativos.
