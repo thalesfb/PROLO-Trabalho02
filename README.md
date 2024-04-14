@@ -83,7 +83,7 @@ Para deduzir a identidade de um personagem, o sistema faz perguntas sobre as seg
 
 ## Iniciando o Sistema
 
-Para começar a usar o sistema, digite `iniciar`. O programa então fará perguntas sequenciais com base nas características mais distintivas dos personagens. O usuário deve responder com `sim` ou `s` para afirmar e `nao` ou `n` para negar.
+Para começar a usar o sistema, digite `iniciar`. O programa então fará perguntas sequenciais com base nas características mais distintivas dos personagens. O usuário deve responder com `sim` ou `s` para afirmar e `nao` ou `n` para negar. Para cada comando, é necessário adicionar um ponto final, antes de executar.
 
 ## Exemplo de Sessão de Dedução
 
