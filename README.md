@@ -93,7 +93,7 @@ Para deduzir a identidade de um personagem, o sistema faz perguntas sobre as seg
 
 Suponha que você pense em *Naruto Uzumaki*. O sistema pode perguntar:
 
-## Exemplo de Sessão de Dedução
+#### Exemplo de Sessão de Dedução
 
 ```
 O personagem: eh_do_sexo_masculino (s|n) ? |: s.
