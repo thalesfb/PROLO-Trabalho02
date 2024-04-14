@@ -99,4 +99,4 @@ Eu acho que o personagem é: naruto_uzumaki
 
 O sistema usa as respostas para restringir progressivamente as possibilidades até chegar a um personagem específico. Se a dedução inicial estiver incorreta, o sistema fará perguntas adicionais até que uma conclusão correta seja alcançada ou todas as opções sejam esgotadas.
 
-Esta documentação deve agora fornecer um guia completo para entender e interagir com o sistema especialista desenvolvido para a disciplina de Programação Lógica e Funcional.
+Esta documentação deve fornecer um guia completo para entender e interagir com o sistema especialista desenvolvido para a disciplina de Programação Lógica e Funcional.
