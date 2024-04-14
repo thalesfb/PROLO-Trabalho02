@@ -95,20 +95,20 @@ Suponha que você pense em *Naruto Uzumaki*. O sistema pode perguntar:
 ## Exemplo de Sessão de Dedução
 
 ```
-O personagem eh_do_sexo_masculino (s|n) ? |: s.
- personagem: tem_cabelo_castanho (s|n) ? |: n.
+O personagem: eh_do_sexo_masculino (s|n) ? |: s.
+O personagem: tem_cabelo_castanho (s|n) ? |: n.
 O personagem: tem_cabelo_ruivo (s|n) ? |: n.
 O personagem: tem_cabelo_branco (s|n) ? |: n.
 O personagem: tem_cabelo_preto (s|n) ? |: n.
 O personagem: tem_cabelo_marrom (s|n) ? |: n.
-O personagem tem_cabelo_loiro (s|n) ? |: s.
-O personagem tem_olhos_azuis (s|n) ? |: s.
-O personagem eh_do_cla_namikaze (s|n) ? |: n.
-O personagem eh_do_cla_uzumaki (s|n) ? |: s.
-O personagem eh_da_equipe_time_7 (s|n) ? |: s.
-O personagem eh_do_sensei_kakashi (s|n) ? |: s.
-O personagem usa_justsu_kage_bushin (s|n) ? |: s.
-O personagem usa_justsu_katon (s|n) ? |: s.
+O personagem: tem_cabelo_loiro (s|n) ? |: s.
+O personagem: tem_olhos_azuis (s|n) ? |: s.
+O personagem: eh_do_cla_namikaze (s|n) ? |: n.
+O personagem: eh_do_cla_uzumaki (s|n) ? |: s.
+O personagem: eh_da_equipe_time_7 (s|n) ? |: s.
+O personagem: eh_do_sensei_kakashi (s|n) ? |: s.
+O personagem: usa_justsu_kage_bushin (s|n) ? |: s.
+O personagem: usa_justsu_katon (s|n) ? |: s.
 Eu acho que o personagem é: naruto_uzumaki
 ```
 Respondendo afirmativamente às perguntas corretas, o sistema eventualmente deduzirá que você pensou em "Naruto Uzumaki".
