@@ -109,15 +109,10 @@ cabelo_vermelho :- verificar(tem_cabelo_vermelho), assert(no(tem_cabelo_castanho
 % Olhos
 % olhos_preto, olhos_azul, olhos_branco, olhos_vermelho, olhos_amarelo, olhos_verde
 olhos_preto :- verificar(tem_olhos_preto), assert(no(tem_olhos_azul)), assert(no(tem_olhos_branco)), assert(no(tem_olhos_vermelho)), assert(no(tem_olhos_amarelo)), assert(no(tem_olhos_verde)). % verifica se tem olhos preto e desconsidera os outros tipos de olhos
-
 olhos_azul :- verificar(tem_olhos_azul), assert(no(tem_olhos_preto)), assert(no(tem_olhos_branco)), assert(no(tem_olhos_vermelho)), assert(no(tem_olhos_amarelo)), assert(no(tem_olhos_verde)). % verifica se tem olhos azul e desconsidera os outros tipos de olhos
-
 olhos_branco :- verificar(tem_olhos_branco), assert(no(tem_olhos_preto)), assert(no(tem_olhos_azul)), assert(no(tem_olhos_vermelho)), assert(no(tem_olhos_amarelo)), assert(no(tem_olhos_verde)). % verifica se tem olhos branco e desconsidera os outros tipos de olhos
-
 olhos_vermelho :- verificar(tem_olhos_vermelho), assert(no(tem_olhos_preto)), assert(no(tem_olhos_azul)), assert(no(tem_olhos_branco)), assert(no(tem_olhos_amarelo)), assert(no(tem_olhos_verde)). % verifica se tem olhos vermelho e desconsidera os outros tipos de olhos
-
 olhos_amarelo :- verificar(tem_olhos_amarelo), assert(no(tem_olhos_preto)), assert(no(tem_olhos_azul)), assert(no(tem_olhos_branco)), assert(no(tem_olhos_vermelho)), assert(no(tem_olhos_verde)). % verifica se tem olhos amarelo e desconsidera os outros tipos de olhos
-
 olhos_verde :- verificar(tem_olhos_verde), assert(no(tem_olhos_preto)), assert(no(tem_olhos_azul)), assert(no(tem_olhos_branco)), assert(no(tem_olhos_vermelho)), assert(no(tem_olhos_amarelo)). % verifica se tem olhos verde e desconsidera os outros tipos de olhos
 
 % Clã
