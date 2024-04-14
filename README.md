@@ -55,7 +55,7 @@ Para deduzir a identidade de um personagem, o sistema faz perguntas sobre as seg
 
 ### Cor do Cabelo
 
--cabelo_castanho, cabelo_ruivo, cabelo_azul, cabelo_loiro, cabelo_preto, cabelo_branco, cabelo_marrom, cabelo_rosa: Cada um verifica se o personagem possui a cor de cabelo especificada.
+- cabelo_castanho, cabelo_ruivo, cabelo_azul, cabelo_loiro, cabelo_preto, cabelo_branco, cabelo_marrom, cabelo_rosa: Cada um verifica se o personagem possui a cor de cabelo especificada.
 
 ### Cor dos Olhos
 
