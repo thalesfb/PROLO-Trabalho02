@@ -73,6 +73,10 @@ Para deduzir a identidade de um personagem, o sistema faz perguntas sobre as seg
 
 - sensei_sarutobi, sensei_baki, sensei_zabuza, entre outros: Especifica o mentor ou líder do personagem.
 
+### Aluno
+
+- aluno_naruto, aluno_sasuke, aluno_sakura, entre outros: Especifica o aluno do personagem.
+
 ### Jutsus (Técnicas Ninja)
 
 - jutsu_katon (fogo), jutsu_taijutsu (corpo a corpo), jutsus_medicos, jutsu_suiton (água), e outros: Cada jutsu verifica se o personagem é capaz de realizar a técnica especificada.
