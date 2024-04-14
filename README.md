@@ -90,6 +90,7 @@ Para deduzir a identidade de um personagem, o sistema faz perguntas sobre as seg
 - Resultado da Dedução: Após responder às perguntas, o sistema usará as respostas para identificar o personagem com base nas regras definidas no código. O nome do personagem será exibido, indicando a conclusão do sistema.
 
 **_Exemplo Prático_**
+
 Suponha que você pense em *Naruto Uzumaki*. O sistema pode perguntar:
 
 ## Exemplo de Sessão de Dedução

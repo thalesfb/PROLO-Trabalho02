@@ -48,8 +48,6 @@ hipotese(sasuke_uchiha) :- sasuke_uchiha, !. % Sasuke Uchiha
 hipotese(shikamaru_nara) :- shikamaru_nara, !. % Shikamaru Nara
 hipotese(shino_aburame) :- shino_aburame, !. % Shino Aburame
 hipotese(desconhecido). % sem diagnóstico
-...
-hipotese(desconhecido).
 ```
 
 O operador de corte (!) é usado para impedir que o Prolog continue a busca por outras regras após uma regra ser satisfeita.
@@ -99,21 +97,13 @@ sexo_feminino :- verificar(eh_do_sexo_feminino), assert(no(eh_do_sexo_masculino)
 %cabelo
 % cabelo_castanho, cabelo_ruivo, cabelo_azul, cabelo_loiro, cabelo_preto, cabelo_branco, cabelo_marrom, cabelo_rosa, cabelo_vermelho
 cabelo_castanho :- verificar(tem_cabelo_castanho), assert(no(tem_cabelo_ruivo)), assert(no(tem_cabelo_prateado)), assert(no(tem_cabelo_azul)), assert(no(tem_cabelo_loiro)), assert(no(tem_cabelo_preto)), assert(no(tem_cabelo_branco)), assert(no(tem_cabelo_marrom)), assert(no(tem_cabelo_rosa)), assert(no(tem_cabelo_vermelho)). % verifica se tem cabelo castanho e desconsidera os outros tipos de cabelo
-
 cabelo_ruivo :- verificar(tem_cabelo_ruivo), assert(no(tem_cabelo_castanho)), assert(no(tem_cabelo_prateado)), assert(no(tem_cabelo_azul)), assert(no(tem_cabelo_loiro)), assert(no(tem_cabelo_preto)), assert(no(tem_cabelo_branco)), assert(no(tem_cabelo_marrom)), assert(no(tem_cabelo_rosa)), assert(no(tem_cabelo_vermelho)). % verifica se tem cabelo ruivo e desconsidera os outros tipos de cabelo
-
 cabelo_azul :- verificar(tem_cabelo_azul), assert(no(tem_cabelo_castanho)), assert(no(tem_cabelo_ruivo)), assert(no(tem_cabelo_prateado)), assert(no(tem_cabelo_loiro)), assert(no(tem_cabelo_preto)), assert(no(tem_cabelo_branco)), assert(no(tem_cabelo_marrom)), assert(no(tem_cabelo_rosa)), assert(no(tem_cabelo_vermelho)). % verifica se tem cabelo azul e desconsidera os outros tipos de cabelo
-
 cabelo_loiro :- verificar(tem_cabelo_loiro), assert(no(tem_cabelo_castanho)), assert(no(tem_cabelo_ruivo)), assert(no(tem_cabelo_prateado)), assert(no(tem_cabelo_azul)), assert(no(tem_cabelo_preto)), assert(no(tem_cabelo_branco)), assert(no(tem_cabelo_marrom)), assert(no(tem_cabelo_rosa)), assert(no(tem_cabelo_vermelho)). % verifica se tem cabelo loiro e desconsidera os outros tipos de cabelo
-
 cabelo_preto :- verificar(tem_cabelo_preto), assert(no(tem_cabelo_castanho)), assert(no(tem_cabelo_ruivo)), assert(no(tem_cabelo_prateado)), assert(no(tem_cabelo_azul)), assert(no(tem_cabelo_loiro)), assert(no(tem_cabelo_branco)), assert(no(tem_cabelo_marrom)), assert(no(tem_cabelo_rosa)), assert(no(tem_cabelo_vermelho)). % verifica se tem cabelo preto e desconsidera os outros tipos de cabelo
-
 cabelo_branco :- verificar(tem_cabelo_branco), assert(no(tem_cabelo_castanho)), assert(no(tem_cabelo_ruivo)), assert(no(tem_cabelo_prateado)), assert(no(tem_cabelo_azul)), assert(no(tem_cabelo_loiro)), assert(no(tem_cabelo_preto)), assert(no(tem_cabelo_marrom)), assert(no(tem_cabelo_rosa)), assert(no(tem_cabelo_vermelho)). % verifica se tem cabelo branco e desconsidera os outros tipos de cabelo
-
 cabelo_marrom :- verificar(tem_cabelo_marrom), assert(no(tem_cabelo_castanho)), assert(no(tem_cabelo_ruivo)), assert(no(tem_cabelo_prateado)), assert(no(tem_cabelo_azul)), assert(no(tem_cabelo_loiro)), assert(no(tem_cabelo_preto)), assert(no(tem_cabelo_branco)), assert(no(tem_cabelo_rosa)), assert(no(tem_cabelo_vermelho)). % verifica se tem cabelo marrom e desconsidera os outros tipos de cabelo
-
 cabelo_rosa :- verificar(tem_cabelo_rosa), assert(no(tem_cabelo_castanho)), assert(no(tem_cabelo_ruivo)), assert(no(tem_cabelo_prateado)), assert(no(tem_cabelo_azul)), assert(no(tem_cabelo_loiro)), assert(no(tem_cabelo_preto)), assert(no(tem_cabelo_branco)), assert(no(tem_cabelo_marrom)), assert(no(tem_cabelo_vermelho)). % verifica se tem cabelo rosa e desconsidera os outros tipos de cabelo
-
 cabelo_vermelho :- verificar(tem_cabelo_vermelho), assert(no(tem_cabelo_castanho)), assert(no(tem_cabelo_ruivo)), assert(no(tem_cabelo_prateado)), assert(no(tem_cabelo_azul)), assert(no(tem_cabelo_loiro)), assert(no(tem_cabelo_preto)), assert(no(tem_cabelo_branco)), assert(no(tem_cabelo_marrom)), assert(no(tem_cabelo_rosa)). % verifica se tem cabelo vermelho e desconsidera os outros tipos de cabelo
 
 % Olhos
