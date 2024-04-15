@@ -6,10 +6,9 @@ Este trabalho visa desenvolver um sistema especialista usando Prolog para deduzi
 
 ## Proposta Detalhada
 
-- **Demonstração**: Apresentação em vídeo mostrando como o sistema faz deduções, destacando a lógica de dedução utilizada.
-- **Documentação do Código**: Código comentado, explicando cada parte da lógica e como as regras do Prolog são aplicadas.
-- **Manual do Usuário**: Um guia explicando como o sistema foi construído, como funciona e como interagir com ele, vinculando o conhecimento do tema Naruto ao funcionamento do Prolog.
-- **Detalhes Técnicos**: Inclusão de regras, deduções e a lógica usada para chegar às conclusões, com exemplos práticos.
+- [Demonstração](https://www.youtube.com/watch?v=rFps193larU): Apresentação em vídeo mostrando como o sistema faz deduções, destacando a lógica de dedução utilizada.
+- [Documentação do Código](https://github.com/thalesfb/Prolog-Trabalho02/blob/main/src/README.md): Código comentado, explicando cada parte da lógica e como as regras do Prolog são aplicadas.
+- [Manual do Usuário](https://github.com/thalesfb/Prolog-Trabalho02/blob/main/README.md): Um guia explicando como o sistema foi construído, como funciona e como interagir com ele, vinculando o conhecimento do tema Naruto ao funcionamento do Prolog.
 
 ## Personagens
 
@@ -91,7 +90,7 @@ Para deduzir a identidade de um personagem, o sistema faz perguntas sobre as seg
 
 **_Exemplo Prático_**
 
-Suponha que você pense em *Naruto Uzumaki*. O sistema pode perguntar:
+Suponha que você pense em _Naruto Uzumaki_. O sistema pode perguntar:
 
 #### Exemplo de Sessão de Dedução
 
@@ -112,6 +111,7 @@ O personagem: usa_justsu_kage_bushin (s|n) ? |: s.
 O personagem: usa_justsu_katon (s|n) ? |: s.
 Eu acho que o personagem é: naruto_uzumaki
 ```
+
 Respondendo afirmativamente às perguntas corretas, o sistema eventualmente deduzirá que você pensou em "Naruto Uzumaki".
 
 # Detalhes Técnicos

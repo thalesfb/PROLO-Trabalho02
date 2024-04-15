@@ -152,7 +152,7 @@ equipe_time_minato :- verificar(eh_do_time_minato). % verifica se é do time min
 % Sensei
 sensei_sarutobi :- verificar(eh_do_sensei_sarutobi). % verifica se é do sensei sarutobi
 sensei_baki :- verificar(eh_do_sensei_baki). % verifica se é do sensei baki
-sensei_zabuza :- verificar(eh_do_sensei_zabuza). % verifica se é do sensei zabuza 
+sensei_zabuza :- verificar(eh_do_sensei_zabuza). % verifica se é do sensei zabuza
 sensei_kurenai :- verificar(eh_do_sensei_kurenai). % verifica se é do sensei kurenai
 sensei_kakashi :- verificar(eh_do_sensei_kakashi). % verifica se é do sensei kakashi
 sensei_kakuzu :- verificar(eh_do_sensei_kakuzu). % verifica se é do sensei kakuzu
@@ -197,7 +197,7 @@ jutsu_kuchiyose :- verificar(usa_jutsu_kuchiyose). % verifica se usa jutsu kuchi
 jutsu_kekkei_genkai :- verificar(usa_jutsu_kekkei_genkai). % verifica se usa jutsu kekkei genkai
 jutsu_hiraishin :- verificar(usa_jutsu_hiraishin). % verifica se usa jutsu hiraishin
 jutsu_kage_bunshin :- verificar(usa_jutsu_kage_bunshin). % verifica se usa jutsu kage bunshin
-jutsu_kage_mane :- verificar(usa_jutsu_kage_mane). % verifica se usa jutsu kage mane 
+jutsu_kage_mane :- verificar(usa_jutsu_kage_mane). % verifica se usa jutsu kage mane
 ```
 
 Essas regras utilizam o predicado auxiliar verificar para perguntar ao usuário sobre uma característica específica e registrar a resposta.
@@ -216,6 +216,14 @@ perguntar(Questao) :-
     ( (Resposta == sim ; Resposta == s) % se a resposta for sim
     -> assert(yes(Questao)) ; % assert para sim
         assert(no(Questao)), fail). % assert para não
+```
+
+## Dinamismo dos fatos
+
+Para obter os fatos dinamicamente de acordo com a entrada do usuário, é necessário usar a expressão `dynamic`
+
+```prolog
+:- dynamic yes/1,no/1. % declaração dinâmica de fatos
 ```
 
 ## Verificação de perguntas armazenadas
